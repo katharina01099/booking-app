@@ -1,6 +1,10 @@
 package com.example.restaurant_server.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="dining_tables")
@@ -19,9 +23,14 @@ public class DiningTable {
     @Column(name="table_capacity")
     int tableCapacity;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "diningTable")
+    private List<Booking> bookings;
+
     public DiningTable(int tableNum, int tableCapacity) {
         this.tableNum = tableNum;
         this.tableCapacity = tableCapacity;
+        this.bookings = new ArrayList<>();
     }
 
     public DiningTable() {

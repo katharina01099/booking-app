@@ -1,6 +1,10 @@
 package com.example.restaurant_server.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="customers")
@@ -21,11 +25,16 @@ public class Customer {
     @Column(name="num_visit")
     private int numVisit;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "customer")
+    private List<Booking> bookings;
+
 
     public Customer(String name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.numVisit = 0;
+        this.bookings = new ArrayList<>();
     }
 
     public Customer() {
