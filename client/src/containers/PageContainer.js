@@ -1,4 +1,5 @@
 import React from "react";
+import BookingBox from "../components/BookingBox";
 
 class PageContainer extends React.Component{
     constructor (props){
@@ -10,7 +11,7 @@ class PageContainer extends React.Component{
         return (
             <div>
                 <h2>Page level 2</h2>
-                <p>bookings are awesome</p>
+                <BookingBox/>
             </div>
         )
     }
