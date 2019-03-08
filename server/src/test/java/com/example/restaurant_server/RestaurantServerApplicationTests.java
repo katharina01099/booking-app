@@ -1,7 +1,9 @@
 package com.example.restaurant_server;
 
+import com.example.restaurant_server.models.Booking;
 import com.example.restaurant_server.models.Customer;
 import com.example.restaurant_server.models.DiningTable;
+import com.example.restaurant_server.repositories.BookingRepository;
 import com.example.restaurant_server.repositories.CustomerRepository;
 import com.example.restaurant_server.repositories.DiningTableRepository;
 import org.junit.Test;
@@ -20,6 +22,9 @@ public class RestaurantServerApplicationTests {
 	@Autowired
 	DiningTableRepository diningTableRepository;
 
+	@Autowired
+	BookingRepository bookingRepository;
+
 	@Test
 	public void contextLoads() {
 	}
@@ -31,6 +36,14 @@ public class RestaurantServerApplicationTests {
 
 		DiningTable diningTable = new DiningTable(1,4);
 		diningTableRepository.save(diningTable);
+
+		Booking booking = new Booking("04/34/23", "10:00", 4, customer, diningTable);
+		bookingRepository.save(booking);
+
+
+
+
+
 	}
 
 }
