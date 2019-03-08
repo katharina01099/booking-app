@@ -1,14 +1,28 @@
 package com.example.restaurant_server.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="customers")
 public class Customer {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column(name="id")
     private long id;
+
+    @Column(name="name")
     private String name;
-    private int phoneNumber;
+
+    @Column(name="phone_number")
+    private String phoneNumber;
+
+    @Column(name="num_visit")
     private int numVisit;
 
 
-    public Customer(String name, int phoneNumber) {
+    public Customer(String name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.numVisit = 0;
@@ -33,11 +47,11 @@ public class Customer {
         this.name = name;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
