@@ -5,7 +5,7 @@ import PageContainer from './containers/PageContainer';
 class App extends Component {
   render() {
     return (
-      <div>
+      <div className = "window">
         <h1>Window layer 1</h1>
         <PageContainer/>
       </div>
