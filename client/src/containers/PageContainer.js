@@ -9,8 +9,7 @@ class PageContainer extends React.Component{
 
     render(){
         return (
-            <div>
-                <h2>Page level 2</h2>
+            <div className="page-container">
                 <BookingBox/>
             </div>
         )

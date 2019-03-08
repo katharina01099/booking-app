@@ -4,8 +4,8 @@ const BookingBox = (props) => {
 
     
         return (
-            <div>
-                <h3>Booking Box level 3</h3>
+            <div className="booking-box">
+                <h3>HAh</h3>
             </div>
         )
         
