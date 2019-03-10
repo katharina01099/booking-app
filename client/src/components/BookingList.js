@@ -4,7 +4,13 @@ import BookingDetail from "./BookingDetail"
 const BookingList = (props) => {
     if (!props.bookings.bookings) return null;
     const bookings = props.bookings.bookings.map(booking => {
-        return <BookingDetail date={booking.date} time={booking.time} numPeople = {booking.numPeople} edit = {props.edit}/>
+        return <BookingDetail 
+        id = {booking.id}
+        date={booking.date} 
+        time={booking.time} 
+        numPeople = {booking.numPeople} 
+        edit = {props.edit}
+        delete = {props.delete}/>
     })
     return (
         <div className="booking-list">
