@@ -9,17 +9,21 @@ class PageContainer extends React.Component{
     }
 
     componentDidMount() {
-        const url = "http://localhost:8080/";
+        const url = "http://localhost:8080/bookings";
         fetch(url)
         .then(res => res.json())
         .then(data => this.setState({bookings: data._embedded.bookings}))
         .catch(err => console.error(err))
     }
 
+    edit() {
+        console.log("edit")
+    }
+
     render(){
         return (
             <div className="page-container">
-                <BookingBox bookings={this.state.bookings}/>
+                <BookingBox bookings={this.state.bookings} edit={this.edit}/>
             </div>
         )
     }

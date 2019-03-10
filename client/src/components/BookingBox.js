@@ -4,7 +4,7 @@ import BookingList from "./BookingList";
 const BookingBox = (props) => {
         return (
             <div className="booking-box">
-                <BookingList bookings = {props}/>
+                <BookingList bookings = {props} edit = {props.edit}/>
             </div>
         )
 }
