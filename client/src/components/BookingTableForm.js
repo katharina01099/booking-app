@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import BookingTable from "./BookingTable";
+import PageContainer from "../containers/PageContainer";
 import "../index.css";
+
 class BookingTableForm extends Component {
 
 
