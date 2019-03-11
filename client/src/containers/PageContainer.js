@@ -20,6 +20,13 @@ class PageContainer extends React.Component {
       filterDate: null,
       filteredBookings: null,
 
+      //State for New Booking Creation
+
+      newName: null,
+      newDate: null,
+      newTime: null,
+      newNumPeople: null,
+
       //State for Editing
 
       editable: false
