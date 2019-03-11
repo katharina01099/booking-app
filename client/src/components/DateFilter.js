@@ -2,12 +2,20 @@ import React from 'react'
 
 const DateFilter = (props) => {
 
-  function testFunction(event){
-    props.handleDateFilter(event.target.value);
+  function handleChange(event){
+    const dateString = event.target.value; 
+    
+    if (dateString.length !== 10){return null};
+    console.log(dateString);
+
+    props.handleDateFilter(dateString);
   }
 
   return (
-    <input onChange={testFunction}type="date"/>
+    <div>
+        <input onChange={handleChange}type="date"/>
+        <button>Show all</button>
+    </div>
   )
 }
 
