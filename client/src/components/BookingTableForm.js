@@ -6,11 +6,11 @@ class BookingTableForm extends Component {
 
   constructor(props){
     super(props)
-    this.state = {
-    date: '',
-    time: '',
-    numPeople: ''
-    }
+    this.state = {  
+      date: '',
+      time: '',
+      numPeople: ''
+    };
 
     this.handleDateChange = this.handleDateChange.bind(this)
     this.handleTimeChange = this.handleTimeChange.bind(this)

@@ -7,8 +7,19 @@ import TableBox from "../components/TableBox";
 class PageContainer extends React.Component{
     constructor (props){
         super(props)
-        this.state={bookings: null}
-
+        this.state={
+            bookings: null,
+            tables: null,
+            isFiltered: false,
+            filterDate: null,
+            filteredBookings: null,
+            data: null
+        }
+        
+        this.updateBookingsList = this.updateBookingsList.bind(this);
+        this.deleteBooking = this.deleteBooking.bind(this);
+        this.handleDateFilter = this.handleDateFilter.bind(this);
+        this.handleBookingTableSubmit = this.handleBookingTableSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -32,13 +43,45 @@ class PageContainer extends React.Component{
     // }
 
     deleteBooking(id) {
-        console.log(id);
+        const url = "http://localhost:8080/bookings/" + id
+        fetch(url, {
+            method: 'DELETE',
+        })
+            .then(this.updateBookingsList(id))
+            .catch(err => console.error(err))
     }
 
-    handleCommentSubmit(submittedTableBooking) {
-        submittedTableBooking.id = Date.now()
-        const updatedTableBooking = [...this.state.data, submittedTableBooking]
-        this.setState({ data: updatedTableBooking })
+    updateBookingsList(id) {
+        const bookingList = this.state.bookings;
+        let index = null;
+        console.log(bookingList)
+        for (let i=0; i<bookingList.length; i++) {
+            let booking = bookingList[i];
+            if (booking.id === id){
+                index = i;
+            }
+        }
+
+        bookingList.splice(index, 1);
+        this.setState({bookings: bookingList})
+    }
+
+
+    handleDateFilter(dateString){
+      console.log("Page Cont: " + dateString)
+
+      const url_filtered = "http://localhost:8080/bookings/" + dateString + "/date";
+      console.log(url_filtered);
+      fetch(url_filtered)
+        .then(res => res.json())
+        .then(data => this.setState({filteredBookings: data, isFiltered: true}))
+        .catch(err => console.error(err))
+    }
+
+    handleBookingTableSubmit(submittedBookingTable) {
+        submittedBookingTable.id = Date.now()
+        const updatedBookingTable = [...this.state.data, submittedBookingTable]
+        this.setState({ data: updatedBookingTable })
     }
 
     render(){
@@ -48,10 +91,13 @@ class PageContainer extends React.Component{
               <TableBox tables = {this.state.tables}/>
                 <BookingBox
                 bookings = {this.state.bookings}
+                filteredBookings = {this.state.filteredBookings}
+                isFiltered = {this.state.isFiltered}
                 // edit = {this.handleEdit}
-                delete = {this.deleteBooking}/>
+                delete = {this.deleteBooking}
+                handleDateFilter = {this.handleDateFilter}/>
+                <BookingTableForm onBookingTableSubmit={this.handleBookingTableSubmit} />
             </div>
-
         )
     }
 }

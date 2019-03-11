@@ -6,7 +6,7 @@ class App extends Component {
   render() {
     return (
       <div className = "window">
-        <h1 id ='appheader'>A wonderful booking app.</h1>
+        <h1 id ='appheader'>My booking manager</h1>
         <PageContainer/>
       </div>
     );
