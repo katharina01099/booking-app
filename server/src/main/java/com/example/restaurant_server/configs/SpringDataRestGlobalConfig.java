@@ -1,3 +1,5 @@
+package com.example.restaurant_server.configs;
+
 import com.example.restaurant_server.models.Booking;
 import com.example.restaurant_server.models.Customer;
 import com.example.restaurant_server.models.DiningTable;
