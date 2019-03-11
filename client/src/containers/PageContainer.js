@@ -4,8 +4,12 @@ import BookingBox from "../components/BookingBox";
 class PageContainer extends React.Component{
     constructor (props){
         super(props)
-        this.state={bookings: null}
-
+        this.state={
+            bookings: null
+        }
+        
+        this.updateBookingsList = this.updateBookingsList.bind(this);
+        this.deleteBooking = this.deleteBooking.bind(this);
     }
 
     componentDidMount() {
@@ -21,7 +25,27 @@ class PageContainer extends React.Component{
     // }
 
     deleteBooking(id) {
-        console.log(id);
+        const url = "http://localhost:8080/bookings/" + id
+        fetch(url, {
+            method: 'DELETE',
+        })
+            .then(this.updateBookingsList(id))
+            .catch(err => console.error(err))
+    }
+
+    updateBookingsList(id) {
+        const bookingList = this.state.bookings;
+        let index = null;
+        console.log(bookingList)
+        for (let i=0; i<bookingList.length; i++) {
+            let booking = bookingList[i];
+            if (booking.id === id){
+                index = i;
+            }
+        }
+
+        bookingList.splice(index, 1);
+        this.setState({bookings: bookingList})
     }
 
     render(){

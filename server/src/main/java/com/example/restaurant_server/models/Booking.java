@@ -2,7 +2,7 @@ package com.example.restaurant_server.models;
 
 import javax.persistence.*;
 
-@Entity
+@Entity 
 @Table(name="bookings")
 public class Booking {
 
