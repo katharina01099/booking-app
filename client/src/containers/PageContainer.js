@@ -1,8 +1,8 @@
 import React from 'react';
-import BookingBox from '../components/BookingBox';
-import BookingTableForm from '../components/BookingTableForm';
+import BookingBox from '../components/booking/BookingBox';
+import BookingTableForm from '../components/forms/BookingTableForm';
 
-import TableBox from '../components/TableBox';
+import TableBox from '../components/tables/TableBox';
 
 class PageContainer extends React.Component {
   constructor(props) {

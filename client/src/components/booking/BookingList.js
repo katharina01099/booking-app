@@ -1,6 +1,6 @@
 import React from "react";
 import BookingDetail from "./BookingDetail"
-import BookingTableForm from "./BookingTableForm";
+import BookingTableForm from "../forms/BookingTableForm";
 
 const BookingList = (props) => {
     if (!props.bookings.bookings) return null;
