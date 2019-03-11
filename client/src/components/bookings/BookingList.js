@@ -1,6 +1,6 @@
 import React from "react";
 import BookingDetail from "./BookingDetail"
-import BookingTableForm from "../forms/BookingTableForm";
+import EditForm from "../forms/EditForm";
 
 const BookingList = (props) => {
     if (!props.bookings.bookings) return null;
@@ -8,7 +8,7 @@ const BookingList = (props) => {
     if (props.isFiltered){
     bookings = props.filteredBookings.map(booking => {
         if (props.selectedId === booking.id) {
-            return <BookingTableForm/>
+            return <EditForm/>
         } else {
             return <BookingDetail 
             id = {booking.id}
@@ -25,7 +25,7 @@ const BookingList = (props) => {
     } else {
     bookings = props.bookings.bookings.map(booking => {
         if (props.selectedId === booking.id) {
-            return <BookingTableForm/>
+            return <EditForm/>
         } else {
             return <BookingDetail 
             id = {booking.id}
