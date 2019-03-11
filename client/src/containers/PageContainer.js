@@ -8,7 +8,11 @@ class PageContainer extends React.Component{
     constructor (props){
         super(props)
         this.state={
-            bookings: null
+            bookings: null,
+            tables: null,
+            isFiltered: false,
+            filterDate: null,
+            filteredBookings: null
         }
         
         this.updateBookingsList = this.updateBookingsList.bind(this);
@@ -63,6 +67,13 @@ class PageContainer extends React.Component{
 
     handleDateFilter(dateString){
       console.log("Page Cont: " + dateString)
+
+      const url_filtered = "http://localhost:8080/bookings/" + dateString + "/date";
+      console.log(url_filtered);
+      fetch(url_filtered)
+        .then(res => res.json())
+        .then(data => this.setState({filteredBookings: data, isFiltered: true}))
+        .catch(err => console.error(err))
     }
 
     render(){
@@ -72,11 +83,12 @@ class PageContainer extends React.Component{
               <TableBox tables = {this.state.tables}/>
                 <BookingBox
                 bookings = {this.state.bookings}
+                filteredBookings = {this.state.filteredBookings}
+                isFiltered = {this.state.isFiltered}
                 // edit = {this.handleEdit}
                 delete = {this.deleteBooking}
                 handleDateFilter = {this.handleDateFilter}/>
             </div>
-
         )
     }
 }

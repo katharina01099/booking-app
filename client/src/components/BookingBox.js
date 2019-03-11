@@ -10,7 +10,9 @@ const BookingBox = (props) => {
                 <BookingList 
                 bookings = {props} 
                 // edit = {props.edit}
-                delete = {props.delete}/>
+                delete = {props.delete}
+                filteredBookings = {props.filteredBookings}
+                isFiltered = {props.isFiltered}/>
 
             </div>
         )
