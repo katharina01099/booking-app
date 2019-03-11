@@ -42,13 +42,13 @@ public class DataLoader implements ApplicationRunner {
         Customer customer2 = new Customer("Colin", "0797997979");
         customerRepository.save(customer2);
 
-        Customer customer3 = new Customer("Dell", "07676769797");
+        Customer customer3 = new Customer("Del", "07676769797");
         customerRepository.save(customer3);
 
         Customer customer4 = new Customer("John", "07676723797");
         customerRepository.save(customer4);
 
-        Customer customer5 = new Customer("John", "07676723797");
+        Customer customer5 = new Customer("Sian", "07676723797");
         customerRepository.save(customer5);
 
 
@@ -83,18 +83,15 @@ public class DataLoader implements ApplicationRunner {
             DiningTable diningTable10 = new DiningTable(10, 4);
             dinningTableRepository.save(diningTable10);
 
-           Booking booking1 = new Booking("11-03-2019", "12:00", 2, customer1, diningTable1);
+           Booking booking1 = new Booking("2019-03-11", "12:00", 2, customer1, diningTable1);
            bookingRepository.save(booking1);
 
 
-            Booking booking2 = new Booking("13-03-2019", "12:00", 2, customer2, diningTable2);
+            Booking booking2 = new Booking("2019-10-01", "12:00", 2, customer2, diningTable2);
             bookingRepository.save(booking2);
 
-            Booking booking3 = new Booking("16-03-2019", "12:00", 2, customer1, diningTable3);
+            Booking booking3 = new Booking("2019-09-03", "12:00", 2, customer1, diningTable3);
             bookingRepository.save(booking3);
-
-
-
 
         }
     }

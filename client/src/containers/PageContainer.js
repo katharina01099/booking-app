@@ -18,6 +18,7 @@ class PageContainer extends React.Component{
         this.onEdit = this.onEdit.bind(this);
         this.updateBookingsList = this.updateBookingsList.bind(this);
         this.deleteBooking = this.deleteBooking.bind(this);
+        this.handleDateFilter = this.handleDateFilter.bind(this);
     }
 
     componentDidMount() {
@@ -47,11 +48,15 @@ class PageContainer extends React.Component{
             method: 'DELETE',
         })
             .then(this.updateBookingsList(id))
+            .then(this.setState({ state: this.state }))
             .catch(err => console.error(err))
     }
 
     updateBookingsList(id) {
         const bookingList = this.state.bookings;
+        if (this.state.isFiltered){
+          this.handleDateFilter(this.state.dateString)
+        }
         let index = null;
         console.log(bookingList)
         for (let i=0; i<bookingList.length; i++) {
@@ -63,6 +68,18 @@ class PageContainer extends React.Component{
 
         bookingList.splice(index, 1);
         this.setState({bookings: bookingList})
+    }
+
+
+    handleDateFilter(dateString){
+      console.log("Page Cont: " + dateString)
+
+      const url_filtered = "http://localhost:8080/bookings/" + dateString + "/date";
+      console.log(url_filtered);
+      fetch(url_filtered)
+        .then(res => res.json())
+        .then(data => this.setState({filteredBookings: data, isFiltered: true}))
+        .catch(err => console.error(err))
     }
 
     render(){
@@ -78,7 +95,6 @@ class PageContainer extends React.Component{
                 delete = {this.deleteBooking}
                 handleDateFilter = {this.handleDateFilter}/>
             </div>
-
         )
     }
 }

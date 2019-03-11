@@ -12,8 +12,10 @@ const TableList = (props) => {
     })
     return (
         <div className="table-list">
+        <form>
             <h4>All Tables</h4>
             {tables}
+        </form>
         </div>
     )
 }

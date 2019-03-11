@@ -1,10 +1,12 @@
 import React from "react";
 import BookingList from "./BookingList";
+import DateFilter from "./DateFilter";
+import "../index.css";
 
 const BookingBox = (props) => {
         return (
             <div className="booking-box">
-                <input className = "date-filter" type="date"></input>
+                Filter by date: <DateFilter handleDateFilter={props.handleDateFilter} />
                 <BookingList 
                 bookings = {props} 
                 edit = {props.edit}
