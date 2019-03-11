@@ -1,5 +1,6 @@
 import React from "react";
 import BookingBox from "../components/BookingBox";
+import BookingTableForm from "../components/BookingTableForm"
 
 class PageContainer extends React.Component{
     constructor (props){
@@ -27,11 +28,13 @@ class PageContainer extends React.Component{
     render(){
         return (
             <div className="page-container">
-                <BookingBox 
-                bookings = {this.state.bookings} 
+            <BookingTableForm/>
+                <BookingBox
+                bookings = {this.state.bookings}
                 // edit = {this.handleEdit}
                 delete = {this.deleteBooking}/>
             </div>
+
         )
     }
 }
