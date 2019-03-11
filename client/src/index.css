@@ -38,6 +38,24 @@ code {
 
 }
 
+.booking-table-form {
+
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.booking-table-form input {
+font-weight: bold;
+box-shadow: 5px 5px;
+}
+
+#post-button{
+  background-color: gray;
+  border-radius: 5px;
+  width: 40%;
+  }
+
 #applogo{
 width: 100px;
 }

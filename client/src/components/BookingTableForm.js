@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import "./BookingTableForm.css"
+import BookingTable from "./BookingTable";
+import "../index.css";
 class BookingTableForm extends Component {
 
 
@@ -34,6 +35,8 @@ class BookingTableForm extends Component {
     this.props.onBookingTableSubmit(newBookingTable)
     this.setState({date: '', time: '', numPeople: ''})
   }
+
+
 
 
 

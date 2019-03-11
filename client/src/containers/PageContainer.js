@@ -1,7 +1,7 @@
 import React from "react";
 import BookingBox from "../components/BookingBox";
-import BookingTableForm from "../components/BookingTableForm"
-
+import BookingTableForm from "../components/BookingTableForm";
+import BookingTable from "../components/BookingTable";
 import TableBox from "../components/TableBox";
 
 class PageContainer extends React.Component{
@@ -33,6 +33,12 @@ class PageContainer extends React.Component{
 
     deleteBooking(id) {
         console.log(id);
+    }
+
+    handleCommentSubmit(submittedTableBooking) {
+        submittedTableBooking.id = Date.now()
+        const updatedTableBooking = [...this.state.data, submittedTableBooking]
+        this.setState({ data: updatedTableBooking })
     }
 
     render(){
