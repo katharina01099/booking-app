@@ -83,7 +83,7 @@ public class DataLoader implements ApplicationRunner {
             DiningTable diningTable10 = new DiningTable(10, 4);
             dinningTableRepository.save(diningTable10);
 
-           Booking booking1 = new Booking("2019-11-03", "12:00", 2, customer1, diningTable1);
+           Booking booking1 = new Booking("2019-03-11", "12:00", 2, customer1, diningTable1);
            bookingRepository.save(booking1);
 
 
@@ -92,9 +92,6 @@ public class DataLoader implements ApplicationRunner {
 
             Booking booking3 = new Booking("2019-09-03", "12:00", 2, customer1, diningTable3);
             bookingRepository.save(booking3);
-
-
-
 
         }
     }

@@ -46,11 +46,15 @@ class PageContainer extends React.Component{
             method: 'DELETE',
         })
             .then(this.updateBookingsList(id))
+            .then(this.setState({ state: this.state }))
             .catch(err => console.error(err))
     }
 
     updateBookingsList(id) {
         const bookingList = this.state.bookings;
+        if (this.state.isFiltered){
+          this.handleDateFilter(this.state.dateString)
+        }
         let index = null;
         console.log(bookingList)
         for (let i=0; i<bookingList.length; i++) {
