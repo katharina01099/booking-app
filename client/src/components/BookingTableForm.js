@@ -44,28 +44,31 @@ render(){
         className="booking-table-form"
         onSubmit={this.handleSubmit}
       >
+
     <input
     type="text"
-    placeholder="Date of booking"
+    placeholder="Date"
     value={this.state.date}
     onChange={this.handleDateChange}
     />
 
+
     <input
     type="text"
-    placeholder="Time of booking"
+    placeholder="Time"
     value={this.state.time}
     onChange={this.handleTimeChange}
 />
+
     <input
     type="text"
-    placeholder="Number of people booking"
+    placeholder="Number of people"
     value={this.state.numPeople}
     onChange={this.handleNumOfPeopleChange}
 
     />
 
-    <input
+    <input id="post-button"
           type="submit"
           value="Post"
         />
