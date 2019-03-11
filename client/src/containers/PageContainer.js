@@ -93,7 +93,8 @@ class PageContainer extends React.Component{
                 isFiltered = {this.state.isFiltered}
                 edit = {this.onEdit}
                 delete = {this.deleteBooking}
-                handleDateFilter = {this.handleDateFilter}/>
+                handleDateFilter = {this.handleDateFilter}
+                editable = {this.state.editable}/>
             </div>
         )
     }

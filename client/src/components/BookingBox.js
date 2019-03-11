@@ -12,8 +12,8 @@ const BookingBox = (props) => {
                 edit = {props.edit}
                 delete = {props.delete}
                 filteredBookings = {props.filteredBookings}
-                isFiltered = {props.isFiltered}/>
-
+                isFiltered = {props.isFiltered}
+                editable = {props.editable}/>
             </div>
         )
 }

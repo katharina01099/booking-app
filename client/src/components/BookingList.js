@@ -13,7 +13,8 @@ const BookingList = (props) => {
         time={booking.time} 
         numPeople = {booking.numPeople} 
         edit = {props.edit}
-        delete = {props.delete}/>
+        delete = {props.delete}
+        editable = {props.editable}/>
     })
 
     } else {
@@ -25,7 +26,8 @@ const BookingList = (props) => {
         time={booking.time} 
         numPeople = {booking.numPeople} 
         edit = {props.edit}
-        delete = {props.delete}/>
+        delete = {props.delete}
+        editable = {props.editable}/>
     })
     }
 
