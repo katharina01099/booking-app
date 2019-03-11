@@ -51,12 +51,14 @@ class BookingTableForm extends Component {
           placeholder="Name"
           value={this.state.name}
           onChange={this.handleNameChange}
+          required
         />
         <input
           type="date"
           placeholder="Date of booking"
           value={this.state.date}
           onChange={this.handleDateChange}
+          required
         />
 
         <input
@@ -64,15 +66,17 @@ class BookingTableForm extends Component {
           placeholder="Time of booking"
           value={this.state.time}
           onChange={this.handleTimeChange}
+          required
         />
         <input
           type="number"
           placeholder="Number of people booking"
           value={this.state.numPeople}
           onChange={this.handleNumOfPeopleChange}
+          required
         />
 
-        <input type="submit" value="Post" />
+        <input type="submit" value="Find Tables" />
       </form>
     );
   }
