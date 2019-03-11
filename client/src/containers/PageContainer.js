@@ -72,16 +72,11 @@ class PageContainer extends React.Component{
               <TableBox tables = {this.state.tables}/>
                 <BookingBox
                 bookings = {this.state.bookings}
-<<<<<<< Updated upstream
-                // edit = {this.handleEdit}
-                delete = {this.deleteBooking}/>
-=======
                 filteredBookings = {this.state.filteredBookings}
                 isFiltered = {this.state.isFiltered}
                 edit = {this.onEdit}
                 delete = {this.deleteBooking}
                 handleDateFilter = {this.handleDateFilter}/>
->>>>>>> Stashed changes
             </div>
 
         )
