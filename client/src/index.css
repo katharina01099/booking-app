@@ -32,12 +32,20 @@ code {
 
 #appheader{
   display: inline;
+  color: #1B264F;
   background-color: rgba(255, 255, 255, 0.8);
   margin: 10px;
   border-radius: 5px;
 
 }
 
+.booking-detail{
+  color: #274690;
+}
+
+
 #applogo{
 width: 100px;
 }
+
+

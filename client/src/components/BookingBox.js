@@ -1,5 +1,6 @@
 import React from "react";
 import BookingList from "./BookingList";
+import "../App.css";
 
 const BookingBox = (props) => {
         return (
