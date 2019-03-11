@@ -1,14 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-image: url('/background.jpg');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: absolute;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.page-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+
+}
+
+#appheader{
+  display: inline;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 10px;
+  border-radius: 5px;
+
+}
+
+#applogo{
+width: 100px;
 }
