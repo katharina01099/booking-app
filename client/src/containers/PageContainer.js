@@ -13,6 +13,7 @@ class PageContainer extends React.Component{
         
         this.updateBookingsList = this.updateBookingsList.bind(this);
         this.deleteBooking = this.deleteBooking.bind(this);
+        this.handleDateFilter = this.handleDateFilter.bind(this);
     }
 
     componentDidMount() {
@@ -59,6 +60,11 @@ class PageContainer extends React.Component{
         this.setState({bookings: bookingList})
     }
 
+
+    handleDateFilter(dateString){
+      console.log("Page Cont: " + dateString)
+    }
+
     render(){
         return (
             <div className="page-container">
@@ -67,7 +73,8 @@ class PageContainer extends React.Component{
                 <BookingBox
                 bookings = {this.state.bookings}
                 // edit = {this.handleEdit}
-                delete = {this.deleteBooking}/>
+                delete = {this.deleteBooking}
+                handleDateFilter = {this.handleDateFilter}/>
             </div>
 
         )
