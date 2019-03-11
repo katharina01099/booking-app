@@ -8,9 +8,14 @@ class PageContainer extends React.Component{
     constructor (props){
         super(props)
         this.state={
-            bookings: null
+            bookings: null,
+            tables: null,
+            isFiltered: false,
+            filterDate: null,
+            filteredBookings: null,
+            editable: false
         }
-        
+        this.onEdit = this.onEdit.bind(this);
         this.updateBookingsList = this.updateBookingsList.bind(this);
         this.deleteBooking = this.deleteBooking.bind(this);
     }
@@ -31,9 +36,10 @@ class PageContainer extends React.Component{
 
     }
 
-    // handleEdit(id) {
-    //     console.log(id)
-    // }
+    onEdit(){
+        this.setState({editable: true})
+        console.log(this.state.editable)
+    }
 
     deleteBooking(id) {
         const url = "http://localhost:8080/bookings/" + id
@@ -66,8 +72,16 @@ class PageContainer extends React.Component{
               <TableBox tables = {this.state.tables}/>
                 <BookingBox
                 bookings = {this.state.bookings}
+<<<<<<< Updated upstream
                 // edit = {this.handleEdit}
                 delete = {this.deleteBooking}/>
+=======
+                filteredBookings = {this.state.filteredBookings}
+                isFiltered = {this.state.isFiltered}
+                edit = {this.onEdit}
+                delete = {this.deleteBooking}
+                handleDateFilter = {this.handleDateFilter}/>
+>>>>>>> Stashed changes
             </div>
 
         )

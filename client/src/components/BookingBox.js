@@ -7,8 +7,10 @@ const BookingBox = (props) => {
                 <input className = "date-filter" type="date"></input>
                 <BookingList 
                 bookings = {props} 
-                // edit = {props.edit}
-                delete = {props.delete}/>
+                edit = {props.edit}
+                delete = {props.delete}
+                filteredBookings = {props.filteredBookings}
+                isFiltered = {props.isFiltered}/>
 
             </div>
         )
