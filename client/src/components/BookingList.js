@@ -6,6 +6,7 @@ const BookingList = (props) => {
     const bookings = props.bookings.bookings.map(booking => {
         return <BookingDetail 
         id = {booking.id}
+        key = {booking.id}
         date={booking.date} 
         time={booking.time} 
         numPeople = {booking.numPeople} 
