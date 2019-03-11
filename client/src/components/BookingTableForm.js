@@ -31,9 +31,10 @@ class BookingTableForm extends Component {
     this.setState({ numPeople: e.target.value });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit(event) {
+    event.preventDefault();
     const newBookingTable = {
+      name: this.state.name,
       date: this.state.date,
       time: this.state.time,
       numPeople: this.state.numPeople
@@ -65,7 +66,7 @@ class BookingTableForm extends Component {
           onChange={this.handleTimeChange}
         />
         <input
-          type="text"
+          type="number"
           placeholder="Number of people booking"
           value={this.state.numPeople}
           onChange={this.handleNumOfPeopleChange}
