@@ -16,12 +16,11 @@ class PageContainer extends React.Component{
             .catch(err => console.error(err))
     }
 
-    handleEdit(id) {
-        console.log(id)
-    }
+    // handleEdit(id) {
+    //     console.log(id)
+    // }
 
-    handleDelete(event) {
-        const id = event.target;
+    deleteBooking(id) {
         console.log(id);
     }
 
@@ -30,8 +29,8 @@ class PageContainer extends React.Component{
             <div className="page-container">
                 <BookingBox 
                 bookings = {this.state.bookings} 
-                edit = {this.handleEdit}
-                delete = {this.handleDelete}/>
+                // edit = {this.handleEdit}
+                delete = {this.deleteBooking}/>
             </div>
         )
     }

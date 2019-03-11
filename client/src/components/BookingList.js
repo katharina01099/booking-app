@@ -9,7 +9,7 @@ const BookingList = (props) => {
         date={booking.date} 
         time={booking.time} 
         numPeople = {booking.numPeople} 
-        edit = {props.edit}
+        // edit = {props.edit}
         delete = {props.delete}/>
     })
     return (
