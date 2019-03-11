@@ -14,7 +14,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     @Column(name="id")
-    private long id;
+    private Long id;
 
     @Column(name="name")
     private String name;
@@ -40,7 +40,7 @@ public class Customer {
     public Customer() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

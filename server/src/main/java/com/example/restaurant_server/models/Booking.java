@@ -9,8 +9,8 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Column(name="id")
-    private long id;
+    @Column(name="Id")
+    private Long id;
 
     @Column(name="date")
     private String date;
@@ -40,7 +40,7 @@ public class Booking {
     public Booking() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

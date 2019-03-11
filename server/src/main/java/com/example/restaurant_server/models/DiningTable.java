@@ -15,7 +15,7 @@ public class DiningTable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     @Column(name="id")
-    private long id;
+    private Long id;
 
     @Column(name="table_num")
     int tableNum;
@@ -36,7 +36,7 @@ public class DiningTable {
     public DiningTable() {
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
