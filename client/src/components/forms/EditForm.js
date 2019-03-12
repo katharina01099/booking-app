@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 
-function EditForm() {
-    const [date, setDate] = useState("");
+const EditForm = (props) => {
+    const [date, setDate] = useState(props.edit.date);
     const [hours, setHours] = useState("");
     const [minutes, setMinutes] = useState("");
-    const [covers, setCovers] = useState("");
+    const [covers, setCovers] = useState(props.edit.numPeople);
 
     return (
         <form>
@@ -35,7 +35,8 @@ function EditForm() {
                 type = "number" 
                 placeholder = "covers"/>
 
-            <button type = "submit">Post</button>
+            <button type = "submit">Save Changes</button>
+            <hr/>
 
         </form>
 
