@@ -8,7 +8,7 @@ const BookingList = (props) => {
     if (props.isFiltered){
     bookings = props.filteredBookings.map(booking => {
         if (props.selectedId === booking.id) {
-            return <EditForm edit = {booking}/>
+            return <EditForm edit = {booking} handleEdit = {props.handleEdit}/>
         } else {
             return <BookingDetail 
             id = {booking.id}
@@ -25,7 +25,7 @@ const BookingList = (props) => {
     } else {
     bookings = props.bookings.bookings.map(booking => {
         if (props.selectedId === booking.id) {
-            return <EditForm edit = {booking}/>
+            return <EditForm edit = {booking} handleEdit = {props.handleEdit}/>
         } else {
             return <BookingDetail 
             id = {booking.id}

@@ -34,6 +34,7 @@ class PageContainer extends React.Component {
         this.updateBookingsList = this.updateBookingsList.bind(this);
         this.deleteBooking = this.deleteBooking.bind(this);
         this.handleDateFilter = this.handleDateFilter.bind(this);
+        this.handleEdit = this.handleEdit.bind(this);
     }
 
   componentDidMount() {
@@ -68,9 +69,10 @@ class PageContainer extends React.Component {
         this.setState({ editable: true, selectedId: id });
     }
 
-    handleEdit(booking){
-        const url_edit = 'http://localhost:8080/bookings/' + booking.id + "/edit" ;
-       
+    handleEdit(e){
+        e.preventDefault();
+        // const url_edit = 'http://localhost:8080/bookings/' + booking.id + "/edit" ;
+        console.log(e)
 
     }
 
@@ -91,7 +93,7 @@ class PageContainer extends React.Component {
         this.handleDateFilter(this.state.dateString);
         }
         let index = null;
-        console.log(bookingList);
+
         for (let i = 0; i < bookingList.length; i++) {
             let booking = bookingList[i];
             if (booking.id === id) {
@@ -106,7 +108,6 @@ class PageContainer extends React.Component {
   handleDateFilter(dateString) {
     const url_filtered =
       'http://localhost:8080/bookings/' + dateString + '/date';
-    console.log(url_filtered);
     fetch(url_filtered)
       .then(res => res.json())
       .then(data => this.setState({ filteredBookings: data, isFiltered: true }))
@@ -128,6 +129,7 @@ class PageContainer extends React.Component {
           handleDateFilter={this.handleDateFilter}
           editable = {this.state.editable}
           selectedId = {this.state.selectedId}
+          handleEdit = {this.handleEdit}
         />
       </div>
     );

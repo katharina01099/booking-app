@@ -14,7 +14,9 @@ const BookingBox = (props) => {
                 filteredBookings = {props.filteredBookings}
                 isFiltered = {props.isFiltered}
                 editable = {props.editable}
-                selectedId = {props.selectedId}/>
+                selectedId = {props.selectedId}
+                handleEdit = {props.handleEdit}
+                />
             </div>
         )
 }

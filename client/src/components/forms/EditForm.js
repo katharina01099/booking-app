@@ -6,7 +6,7 @@ const EditForm = (props) => {
     const [covers, setCovers] = useState(props.edit.numPeople);
 
     return (
-        <form>
+        <form onSubmit = {props.handleEdit}>
             <input 
                 value = {date} 
                 onChange = {(e) => setDate(e.target.value)} 

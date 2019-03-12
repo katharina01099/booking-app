@@ -1,8 +1,6 @@
 import React from 'react';
 
 const CustomerDetail = (props) => {
-    console.log(props)
-
     return(
         <div className = "customer-detail">
             <li>Name: {props.customerInfo.name}</li>
