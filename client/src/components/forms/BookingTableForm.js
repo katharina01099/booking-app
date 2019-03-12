@@ -92,8 +92,6 @@ class BookingTableForm extends Component {
         value={this.state.phoneNumber}
         onChange={this.handlePhoneNumber}
         />
-
-        <input type="submit" value="Post" />
       </form>
     );
   }

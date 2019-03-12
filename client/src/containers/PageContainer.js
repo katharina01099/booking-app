@@ -56,6 +56,7 @@ class PageContainer extends React.Component {
         this.handleCoversDynamic = this.handleCoversDynamic.bind(this);
         this.handlePhoneNumberDynamic = this.handlePhoneNumberDynamic.bind(this);
         this.handleTableDynamic = this.handleTableDynamic.bind(this);
+        this.submitForm = this.submitForm.bind(this);
 
     }
 
@@ -170,6 +171,58 @@ class PageContainer extends React.Component {
   }
   
 
+  submitForm(){
+      const newCustomer = {name:this.state.newName, phoneNumber: this.state.newPhoneNumber}
+      const url = "http://localhost:8080/customers/";
+  
+      fetch(url, {
+          method: "post",
+          body: JSON.stringify(newCustomer),
+          headers: {
+            "Content-Type": "application/json"
+          }
+      })
+      .then(res => res.json())
+      .then(data => 
+        fetch("http://localhost:8080/bookings", {
+            method: "post",
+            body: JSON.stringify({
+                time: this.state.newTime, 
+                date:  this.state.newDate, 
+                numPeople:  this.state.newCovers, 
+                customer: data._links.customer.href, 
+                diningTable: "http://localhost:8080/diningTables/" + this.state.newTableNumber}),
+            headers: {
+                "Content-Type": "application/json"
+            }   
+        })
+        .catch(err => console.error(err))
+        )
+
+      .catch(err => console.error(err));
+
+
+
+
+
+
+
+
+    //   const newBooking = {name: this.state.newName,
+    //     date: this.state.newDate,
+    //     time: this.state.newTime,
+    //     phoneNumber: this.state.newPhoneNumber,
+    //     numPeople: this.state.newCovers,
+    //     table: "http://localhost:8080/diningTables/" + this.state.newTableNumber}
+    //   const url = "http://localhost:8080/bookings"
+    //   fetch(url, {
+    //       method: 'POST',
+    //       body: JSON.stringify(newBooking)
+    //   })
+    //   .catch(err => console.error(err))
+    }
+  
+
   render() {
     return (
       <div className="page-container">
@@ -182,6 +235,7 @@ class PageContainer extends React.Component {
             handlePhoneNumberDynamic = {this.handlePhoneNumberDynamic}
             handleCoversDynamic = {this.handleCoversDynamic}
             />
+            <button onClick = {this.submitForm}>Submit booking</button>
         <CustomerList customers = {this.state.customers}/>
       </div>
         <TableBox 
