@@ -114,8 +114,10 @@ class PageContainer extends React.Component {
   render() {
     return (
       <div className="page-container">
+      <div className="columnwrapper">
         <BookingTableForm />
         <CustomerList customers = {this.state.customers}/>
+      </div>
         <TableBox tables={this.state.tables} />
         <BookingBox
           bookings={this.state.bookings}
