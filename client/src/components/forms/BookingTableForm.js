@@ -7,13 +7,15 @@ class BookingTableForm extends Component {
       name: '',
       date: '',
       time: '',
-      numPeople: ''
+      numPeople: '',
+      phoneNumber: ''
     };
 
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
     this.handleNumOfPeopleChange = this.handleNumOfPeopleChange.bind(this);
+    this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleNameChange(e) {
@@ -29,6 +31,10 @@ class BookingTableForm extends Component {
 
   handleNumOfPeopleChange(e) {
     this.setState({ numPeople: e.target.value });
+  }
+
+  handlePhoneNumber(e){
+    this.setState({phoneNumber: e.target.value});
   }
 
   handleSubmit(e) {
@@ -69,6 +75,13 @@ class BookingTableForm extends Component {
           placeholder="Number of people booking"
           value={this.state.numPeople}
           onChange={this.handleNumOfPeopleChange}
+        />
+
+        <input
+        type="text"
+        placeholder="Phone Number"
+        value={this.state.phoneNumber}
+        onChange={this.handlePhoneNumber}
         />
 
         <input type="submit" value="Post" />
