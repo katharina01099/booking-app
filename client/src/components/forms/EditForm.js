@@ -6,7 +6,8 @@ const EditForm = (props) => {
         date: props.edit.date, 
         time: props.edit.time,
         phoneNumber: props.edit.customer.phoneNumber,
-        covers: props.edit.numPeople });
+        covers: props.edit.numPeople ,
+        table: props.edit.diningTable.id});
 
     const handleChange = (e) => {
         const {id, value} = e.target;
@@ -46,6 +47,12 @@ const EditForm = (props) => {
                 onChange = {handleChange} 
                 type = "number" 
                 placeholder = "covers"/>
+
+            <input
+                id = "table"
+                defaultValue = {props.edit.diningTable.id}
+                onChange  = {handleChange}
+                type = "text"/>
 
             <button type = "submit">Save Changes</button>
             <hr/>
