@@ -14,6 +14,7 @@ class PageContainer extends React.Component {
 
       bookings: null,
       tables: null,
+      data: null,
 
       //State for Date Filtering
 
@@ -33,6 +34,7 @@ class PageContainer extends React.Component {
     this.updateBookingsList = this.updateBookingsList.bind(this);
     this.deleteBooking = this.deleteBooking.bind(this);
     this.handleDateFilter = this.handleDateFilter.bind(this);
+    this.handleBookingTableSubmit = this.handleBookingTableSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -97,10 +99,18 @@ class PageContainer extends React.Component {
       .catch(err => console.error(err));
   }
 
+    handleBookingTableSubmit(submittedBookingTable) {
+        submittedBookingTable.id = Date.now()
+        const updatedBookingTable = [...this.state.data, submittedBookingTable]
+        this.setState({ data: updatedBookingTable })
+    }
+
   render() {
     return (
       <div className="page-container">
-        <BookingTableForm />
+        <BookingTableForm 
+                handleBookingTableSubmit={this.handleBookingTableSubmit} 
+        />
         <TableBox tables={this.state.tables} />
         <BookingBox
           bookings={this.state.bookings}

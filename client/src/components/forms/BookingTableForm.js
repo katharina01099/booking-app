@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './BookingTableForm.css';
+import "../../containers/PageContainer";
+
 class BookingTableForm extends Component {
   constructor(props) {
     super(props);
