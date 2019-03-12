@@ -60,6 +60,7 @@ class PageContainer extends React.Component {
         this.handleTableDynamic = this.handleTableDynamic.bind(this);
         this.submitForm = this.submitForm.bind(this);
         this.validate = this.validate.bind(this);
+        this.getExistingCustomer = this.getExistingCustomer.bind(this);
 
     }
 
@@ -187,6 +188,14 @@ class PageContainer extends React.Component {
 
   submitForm(){
       if (!this.validate()) {return}
+      const existingCustomer = this.getExistingCustomer()
+
+      if(existingCustomer){
+        console.log("This customer already exists! Their name is " + existingCustomer.name)
+        //TODO Call an update method here that increments the visit counter and then makes the booking as before
+        return
+      }
+
       const newCustomer = {name:this.state.newName, phoneNumber: this.state.newPhoneNumber}
       const url = "http://localhost:8080/customers/";
   
@@ -221,6 +230,19 @@ class PageContainer extends React.Component {
       this.setState(this.state);
 
     }
+    //Existing Customer Checking
+
+    getExistingCustomer(){
+        if(this.state.customers){
+            const filteredCustomers = this.state.customers.filter(customer => {
+                return (customer.name === this.state.newName)
+            }) 
+            return filteredCustomers[0]
+        }
+    }
+
+
+
   
     //Input Validation Functions
     validate() {
