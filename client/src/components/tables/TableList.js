@@ -8,7 +8,8 @@ const TableList = (props) => {
           key = {table.id}
           number = {table.tableNum}
           capacity = {table.tableCapacity}
-          id = {table.id}/>
+          id = {table.id}
+          handleTableDynamic = {props.handleTableDynamic}/>
     })
     return (
         <div className="table-list">

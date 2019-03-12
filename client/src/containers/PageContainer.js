@@ -55,6 +55,7 @@ class PageContainer extends React.Component {
         this.handleTimeDynamic = this.handleTimeDynamic.bind(this);
         this.handleCoversDynamic = this.handleCoversDynamic.bind(this);
         this.handlePhoneNumberDynamic = this.handlePhoneNumberDynamic.bind(this);
+        this.handleTableDynamic = this.handleTableDynamic.bind(this);
 
     }
 
@@ -163,6 +164,10 @@ class PageContainer extends React.Component {
   handleCoversDynamic(covers){
     this.setState({newCovers: covers});
   }
+
+  handleTableDynamic(tablenumber){
+    this.setState({newTableNumber: tablenumber});
+  }
   
 
   render() {
@@ -179,7 +184,9 @@ class PageContainer extends React.Component {
             />
         <CustomerList customers = {this.state.customers}/>
       </div>
-        <TableBox tables={this.state.tables} />
+        <TableBox 
+        tables={this.state.tables} 
+        handleTableDynamic = {this.handleTableDynamic}/>
         <BookingBox
           bookings={this.state.bookings}
           filteredBookings={this.state.filteredBookings}

@@ -4,7 +4,7 @@ import React from "react";
 const TableDetail = (props) => {
 
     function handleRadioSelect(event){
-        console.log(event.target.value); 
+        props.handleTableDynamic(event.target.value); 
     }
 
     return (
