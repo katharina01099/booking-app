@@ -98,8 +98,22 @@ class PageContainer extends React.Component {
     }
 
     handleEdit(booking){
-        this.setState({editable: false, selectedId: null});
+        const url = 'http://localhost:8080/bookings/' + this.state.selectedId;
         console.log(booking)
+        console.log(url)
+        fetch(url, {
+            method: 'PUT',
+            body: JSON.stringify({numPeople: booking.covers, date: booking.date, time: booking.time}),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(res => res.json())
+        .then(fetch('http://localhost:8080/bookings', {
+            headers: { 'Content-Type': 'application/json' }
+        }))
+
+        this.setState({editable: false, selectedId: null});
 
     }
 
