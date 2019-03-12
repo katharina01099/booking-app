@@ -14,7 +14,7 @@ const DateFilter = (props) => {
   return (
     <div>
         <input onChange={handleChange}type="date"/>
-        <button>Show all</button>
+        <button onClick={props.resetFilter}>Show all</button>
     </div>
   )
 }

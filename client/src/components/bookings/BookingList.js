@@ -4,18 +4,21 @@ import EditForm from "../forms/EditForm";
 
 const BookingList = (props) => {
     if (!props.bookings.bookings) return null;
-    let bookings = null; 
+    let bookings = null;
     if (props.isFiltered){
     bookings = props.filteredBookings.map(booking => {
         if (props.selectedId === booking.id) {
             return <EditForm edit = {booking} handleEdit = {props.handleEdit}/>
         } else {
-            return <BookingDetail 
+            return <BookingDetail
             id = {booking.id}
             key = {booking.id}
-            date={booking.date} 
-            time={booking.time} 
-            numPeople = {booking.numPeople} 
+            date={booking.date}
+            time={booking.time}
+            tableNumber={booking.diningTable.tableNum}
+            numPeople = {booking.numPeople}
+            name={booking.customer.name}
+            phoneNumber={booking.customer.phoneNumber}
             edit = {props.edit}
             delete = {props.delete}
             editable = {props.editable}/>
@@ -27,12 +30,15 @@ const BookingList = (props) => {
         if (props.selectedId === booking.id) {
             return <EditForm edit = {booking} handleEdit = {props.handleEdit}/>
         } else {
-            return <BookingDetail 
+            return <BookingDetail
             id = {booking.id}
             key = {booking.id}
-            date={booking.date} 
-            time={booking.time} 
-            numPeople = {booking.numPeople} 
+            date={booking.date}
+            time={booking.time}
+            tableNumber={booking.diningTable.tableNum}
+            numPeople = {booking.numPeople}
+            name={booking.customer.name}
+            phoneNumber={booking.customer.phoneNumber}
             edit = {props.edit}
             delete = {props.delete}
             editable = {props.editable}/>
