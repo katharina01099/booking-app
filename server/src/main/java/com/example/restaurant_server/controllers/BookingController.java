@@ -19,4 +19,10 @@ public class BookingController {
     public List<Booking> getBookingsByDate(@PathVariable String date){
        return bookingRepository.findBookingsByDate(date);
    }
+
+   @CrossOrigin
+   @GetMapping(value = "/")
+    public List<Booking> getAllBookings(){
+       return bookingRepository.findAll();
+   }
 }

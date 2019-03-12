@@ -1,5 +1,7 @@
 package com.example.restaurant_server.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity 
@@ -20,6 +22,7 @@ public class Booking {
 
     @Column(name="num_people")
     private int numPeople;
+
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
