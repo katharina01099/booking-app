@@ -26,8 +26,20 @@ class PageContainer extends React.Component {
         //State for Editing
 
         editable: false,
-        selectedId: null
-        };
+        selectedId: null,
+        
+        //State for posting new booking
+
+        newName: null,
+        newPhoneNumber: null,
+        newDate: null,
+        newTime: null,
+        newCovers: null,
+    
+        // State for table id for new booking
+
+        newTableNumber: null
+    };
 
         //Bindings go here
 
@@ -38,6 +50,12 @@ class PageContainer extends React.Component {
         this.handleEdit = this.handleEdit.bind(this);    
         this.resetFilter = this.resetFilter.bind(this);
         this.handleBookingTableSubmit = this.handleBookingTableSubmit.bind(this);
+        this.handleNameDynamic = this.handleNameDynamic.bind(this);
+        this.handleDateDynamic = this.handleDateDynamic.bind(this);
+        this.handleTimeDynamic = this.handleTimeDynamic.bind(this);
+        this.handleCoversDynamic = this.handleCoversDynamic.bind(this);
+        this.handlePhoneNumberDynamic = this.handlePhoneNumberDynamic.bind(this);
+
     }
 
   componentDidMount() {
@@ -125,6 +143,26 @@ class PageContainer extends React.Component {
     const updatedBookingTable = [...this.state.bookings, submittedBookingTable]
     this.setState({ bookings: updatedBookingTable })
   }
+
+  handleNameDynamic(name) {
+    console.log(name);
+    this.setState({newName: name});
+  }
+
+  handleDateDynamic(date){
+    this.setState({newDate: date});
+  }
+
+  handleTimeDynamic(time){
+    this.setState({newTime: time});
+  }
+
+  handlePhoneNumberDynamic(number){
+    this.setState({newPhoneNumber: number});
+  }
+  handleCoversDynamic(covers){
+    this.setState({newCovers: covers});
+  }
   
 
   render() {
@@ -132,7 +170,13 @@ class PageContainer extends React.Component {
       <div className="page-container">
       <div className="columnwrapper">
         <BookingTableForm
-            handleBookingTableSubmit={this.handleBookingTableSubmit}/>
+            handleBookingTableSubmit={this.handleBookingTableSubmit}
+            handleNameDynamic = {this.handleNameDynamic}
+            handleDateDynamic = {this.handleDateDynamic}
+            handleTimeDynamic = {this.handleTimeDynamic}
+            handlePhoneNumberDynamic = {this.handlePhoneNumberDynamic}
+            handleCoversDynamic = {this.handleCoversDynamic}
+            />
         <CustomerList customers = {this.state.customers}/>
       </div>
         <TableBox tables={this.state.tables} />

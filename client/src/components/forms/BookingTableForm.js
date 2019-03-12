@@ -23,21 +23,27 @@ class BookingTableForm extends Component {
   }
   handleNameChange(e) {
     this.setState({ name: e.target.value });
+    this.props.handleNameDynamic(e.target.value);
   }
+
   handleDateChange(e) {
     this.setState({ date: e.target.value });
+    this.props.handleDateDynamic(e.target.value);
   }
 
   handleTimeChange(e) {
     this.setState({ time: e.target.value });
+    this.props.handleTimeDynamic(e.target.value);
   }
 
   handleNumOfPeopleChange(e) {
     this.setState({ numPeople: e.target.value });
+    this.props.handleCoversDynamic(e.target.value);
   }
 
   handlePhoneNumber(e){
     this.setState({phoneNumber: e.target.value});
+    this.props.handlePhoneNumberDynamic(e.target.value);
   }
 
   handleSubmit(e) {
