@@ -255,6 +255,7 @@ class PageContainer extends React.Component {
             tables={this.state.tables} 
             handleTableDynamic = {this.handleTableDynamic}
             ValidateFormRef2 = {this.formCol2}
+            CurrentCovers = {this.state.newCovers}
         />
         <BookingBox
           bookings={this.state.bookings}

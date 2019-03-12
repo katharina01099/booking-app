@@ -7,7 +7,8 @@ const TableBox = (props) => {
                 <TableList 
                 tables = {props.tables}
                 ValidateFormRef2 = {props.ValidateFormRef2}
-                handleTableDynamic = {props.handleTableDynamic} />
+                handleTableDynamic = {props.handleTableDynamic} 
+                CurrentCovers = {props.CurrentCovers} />
             </div>
         )
 }

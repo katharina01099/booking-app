@@ -87,6 +87,8 @@ class BookingTableForm extends Component {
           placeholder="Number of people booking"
           value={this.state.numPeople}
           onChange={this.handleNumOfPeopleChange}
+          min = '1'
+          max = '20'
           required
         />
 
