@@ -85,6 +85,8 @@ class PageContainer extends React.Component {
       .then(res => res.json())
       .then(data => this.setState({ customers: data._embedded.customers }))
       .catch(err => console.error(err));
+
+    console.log("I have pulled from db");
     }
 
     // handle all booking edit functionality
@@ -147,7 +149,6 @@ class PageContainer extends React.Component {
   }
 
   handleNameDynamic(name) {
-    console.log(name);
     this.setState({newName: name});
   }
 
@@ -203,7 +204,8 @@ class PageContainer extends React.Component {
 
 
 
-
+      console.log("I have submitted to db");
+      this.setState(this.state);
 
 
 
@@ -224,6 +226,7 @@ class PageContainer extends React.Component {
   
 
   render() {
+    console.log("I have rendered");
     return (
       <div className="page-container">
       <div className="columnwrapper">
