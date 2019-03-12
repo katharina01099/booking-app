@@ -11,7 +11,7 @@ const TableDetail = (props) => {
         <div className="table-detail">
             <li>Table number : {props.number}</li>
             <li>Capacity : {props.capacity}</li>
-            <input type="radio" name="tableSelector" value={props.id} onChange={handleRadioSelect}/>
+            <input required type="radio" name="tableSelector" value={props.id} onChange={handleRadioSelect}/>
         <hr></hr>
         </div>
     )

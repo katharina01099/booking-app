@@ -4,6 +4,7 @@ import TableDetail from "./TableDetail"
 const TableList = (props) => {
     if (!props.tables) return null;
     const tables = props.tables.map(table => {
+        if (props.CurrentCovers > table.tableCapacity){ return null} 
         return <TableDetail 
           key = {table.id}
           number = {table.tableNum}
@@ -13,7 +14,7 @@ const TableList = (props) => {
     })
     return (
         <div className="table-list">
-        <form>
+        <form ref={props.ValidateFormRef2}>
             <h4>All Tables</h4>
             {tables}
         </form>
