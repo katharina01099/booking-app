@@ -6,6 +6,7 @@ const TableBox = (props) => {
             <div className="table-box">
                 <TableList 
                 tables = {props.tables}
+                ValidateFormRef2 = {props.ValidateFormRef2}
                 handleTableDynamic = {props.handleTableDynamic} />
             </div>
         )

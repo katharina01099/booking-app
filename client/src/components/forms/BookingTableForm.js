@@ -59,18 +59,20 @@ class BookingTableForm extends Component {
 
   render() {
     return (
-      <form className="booking-table-form" onSubmit={this.handleSubmit}>
+      <form ref={this.props.ValidateFormRef1} className="booking-table-form" onSubmit={this.handleSubmit}>
         <input
           type="text"
           placeholder="Name"
           value={this.state.name}
           onChange={this.handleNameChange}
+          required
         />
         <input
           type="date"
           placeholder="Date of booking"
           value={this.state.date}
           onChange={this.handleDateChange}
+          required
         />
 
         <input
@@ -78,12 +80,14 @@ class BookingTableForm extends Component {
           placeholder="Time of booking"
           value={this.state.time}
           onChange={this.handleTimeChange}
+          required
         />
         <input
-          type="text"
+          type="number"
           placeholder="Number of people booking"
           value={this.state.numPeople}
           onChange={this.handleNumOfPeopleChange}
+          required
         />
 
         <input
@@ -91,6 +95,7 @@ class BookingTableForm extends Component {
         placeholder="Phone Number"
         value={this.state.phoneNumber}
         onChange={this.handlePhoneNumber}
+        required
         />
       </form>
     );

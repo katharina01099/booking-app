@@ -9,6 +9,8 @@ import EditForm from '../components/forms/EditForm';
 class PageContainer extends React.Component {
     constructor(props) {
         super(props);
+        this.formCol1 = React.createRef();
+        this.formCol2 = React.createRef();
         this.state = {
 
         //State for Initial Database Pulls
@@ -57,6 +59,7 @@ class PageContainer extends React.Component {
         this.handlePhoneNumberDynamic = this.handlePhoneNumberDynamic.bind(this);
         this.handleTableDynamic = this.handleTableDynamic.bind(this);
         this.submitForm = this.submitForm.bind(this);
+        this.validate = this.validate.bind(this);
 
     }
 
@@ -173,6 +176,7 @@ class PageContainer extends React.Component {
   
 
   submitForm(){
+      if (!this.validate()) {return}
       const newCustomer = {name:this.state.newName, phoneNumber: this.state.newPhoneNumber}
       const url = "http://localhost:8080/customers/";
   
@@ -224,6 +228,11 @@ class PageContainer extends React.Component {
     //   .catch(err => console.error(err))
     }
   
+    //Input Validation Functions
+    validate() {
+        return (this.formCol1.current.reportValidity() && this.formCol2.current.reportValidity());
+    }
+
 
   render() {
     console.log("I have rendered");
@@ -237,13 +246,16 @@ class PageContainer extends React.Component {
             handleTimeDynamic = {this.handleTimeDynamic}
             handlePhoneNumberDynamic = {this.handlePhoneNumberDynamic}
             handleCoversDynamic = {this.handleCoversDynamic}
+            ValidateFormRef1 = {this.formCol1}
             />
             <button onClick = {this.submitForm}>Submit booking</button>
         <CustomerList customers = {this.state.customers}/>
       </div>
         <TableBox 
-        tables={this.state.tables} 
-        handleTableDynamic = {this.handleTableDynamic}/>
+            tables={this.state.tables} 
+            handleTableDynamic = {this.handleTableDynamic}
+            ValidateFormRef2 = {this.formCol2}
+        />
         <BookingBox
           bookings={this.state.bookings}
           filteredBookings={this.state.filteredBookings}
