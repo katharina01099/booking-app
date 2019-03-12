@@ -3,7 +3,7 @@ import BookingBox from '../components/bookings/BookingBox';
 import BookingTableForm from '../components/forms/BookingTableForm';
 import CustomerList from '../components/customers/CustomerList';
 import TableBox from '../components/tables/TableBox';
-import EditForm from '../components/forms/EditForm';
+// import EditForm from '../components/forms/EditForm';
 
 
 class PageContainer extends React.Component {
@@ -88,8 +88,6 @@ class PageContainer extends React.Component {
       .then(res => res.json())
       .then(data => this.setState({ customers: data._embedded.customers }))
       .catch(err => console.error(err));
-
-    console.log("I have pulled from db");
     }
 
     // handle all booking edit functionality
@@ -99,8 +97,6 @@ class PageContainer extends React.Component {
 
     handleEdit(booking){
         const url = 'http://localhost:8080/bookings/' + this.state.selectedId;
-        console.log(booking)
-        console.log(url)
         fetch(url, {
             method: 'PUT',
             body: JSON.stringify({numPeople: booking.covers, date: booking.date, time: booking.time}),
@@ -222,24 +218,8 @@ class PageContainer extends React.Component {
 
 
 
-      console.log("I have submitted to db");
       this.setState(this.state);
 
-
-
-
-    //   const newBooking = {name: this.state.newName,
-    //     date: this.state.newDate,
-    //     time: this.state.newTime,
-    //     phoneNumber: this.state.newPhoneNumber,
-    //     numPeople: this.state.newCovers,
-    //     table: "http://localhost:8080/diningTables/" + this.state.newTableNumber}
-    //   const url = "http://localhost:8080/bookings"
-    //   fetch(url, {
-    //       method: 'POST',
-    //       body: JSON.stringify(newBooking)
-    //   })
-    //   .catch(err => console.error(err))
     }
   
     //Input Validation Functions
@@ -249,7 +229,6 @@ class PageContainer extends React.Component {
 
 
   render() {
-    console.log("I have rendered");
     return (
       <div className="page-container">
       <div className="columnwrapper">
