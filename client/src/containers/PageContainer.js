@@ -69,10 +69,9 @@ class PageContainer extends React.Component {
         this.setState({ editable: true, selectedId: id });
     }
 
-    handleEdit(e){
-        e.preventDefault();
-        // const url_edit = 'http://localhost:8080/bookings/' + booking.id + "/edit" ;
-        console.log(e)
+    handleEdit(booking){
+        
+        console.log(booking)
 
     }
 
