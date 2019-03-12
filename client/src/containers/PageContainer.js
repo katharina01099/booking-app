@@ -34,6 +34,7 @@ class PageContainer extends React.Component {
     this.updateBookingsList = this.updateBookingsList.bind(this);
     this.deleteBooking = this.deleteBooking.bind(this);
     this.handleDateFilter = this.handleDateFilter.bind(this);
+    this.resetFilter = this.resetFilter.bind(this);
   }
 
   componentDidMount() {
@@ -106,11 +107,17 @@ class PageContainer extends React.Component {
       .catch(err => console.error(err));
   }
 
+  resetFilter(){
+      this.setState({isFiltered: false})
+  }
+
   render() {
     return (
       <div className="page-container">
+      <div className="columnwrapper">
         <BookingTableForm />
         <CustomerList customers = {this.state.customers}/>
+      </div>
         <TableBox tables={this.state.tables} />
         <BookingBox
           bookings={this.state.bookings}
@@ -121,6 +128,7 @@ class PageContainer extends React.Component {
           handleDateFilter={this.handleDateFilter}
           editable = {this.state.editable}
           selectedId = {this.state.selectedId}
+          resetFilter = {this.resetFilter}
         />
       </div>
     );
