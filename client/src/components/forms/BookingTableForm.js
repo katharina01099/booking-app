@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import './BookingTableForm.css';
+import "../../containers/PageContainer";
+import "../../index.css";
+
+
 class BookingTableForm extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +41,7 @@ class BookingTableForm extends Component {
       time: this.state.time,
       numPeople: this.state.numPeople
     };
-    this.props.onBookingTableSubmit(newBookingTable);
+    this.props.handleBookingTableSubmit(newBookingTable);
     this.setState({ date: '', time: '', numPeople: '' });
   }
 
