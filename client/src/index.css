@@ -8,10 +8,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-image: url('/background.jpg');
+  background-color: #BBC7CE;
   background-size: auto;
   background-repeat: no-repeat;
   background-position: absolute;
+
 }
 
 code {
@@ -19,14 +20,21 @@ code {
     monospace;
 }
 
-h4{
-
+h1{
+  color: #4B3B40;
 }
+h2 {
+  color: #2E5266;
+}
+
+
+
+
 
 .page-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  background-color: rgba(255, 255, 255, 0.8);
+  /* background-color: rgba(255, 255, 255, 0.8); */
   border-radius: 5px;
   margin: 10px;
   padding: 10px;
@@ -36,7 +44,7 @@ h4{
 #appheader{
   display: inline;
   color: #1B264F;
-  background-color: rgba(255, 255, 255, 0.8);
+  /* background-color: rgba(255, 255, 255, 0.8); */
   margin: 10px;
   border-radius: 5px;
 

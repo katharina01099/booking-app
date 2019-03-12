@@ -15,7 +15,7 @@ const TableList = (props) => {
     return (
         <div className="table-list">
         <form ref={props.ValidateFormRef2}>
-            <h4>All Tables</h4>
+            <h2>All Tables</h2>
             {tables}
         </form>
         </div>

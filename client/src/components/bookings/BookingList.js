@@ -49,7 +49,7 @@ const BookingList = (props) => {
 
     return (
         <div className="booking-list">
-            <h4>All Bookings</h4>
+            
             {bookings}
         </div>
     )

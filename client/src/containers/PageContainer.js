@@ -4,6 +4,7 @@ import BookingTableForm from '../components/forms/BookingTableForm';
 import CustomerList from '../components/customers/CustomerList';
 import TableBox from '../components/tables/TableBox';
 import EditForm from '../components/forms/EditForm';
+import "../index.css";
 
 
 class PageContainer extends React.Component {
