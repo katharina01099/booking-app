@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 
 const EditForm = (props) => {
     const [date, setDate] = useState(props.edit.date);
-    const [hours, setHours] = useState("");
-    const [minutes, setMinutes] = useState("");
+    const [time, setTime] = useState(props.edit.time);
     const [covers, setCovers] = useState(props.edit.numPeople);
 
     return (
@@ -14,20 +13,10 @@ const EditForm = (props) => {
                 type = "date"/>
            
             <input 
-                value = {hours} 
-                onChange = {(e) => setHours(e.target.value)} 
-                type = "number"
-                min = "0"
-                max = "23"
-                placeholder = "Hr"/>
-            <input 
-                value = {minutes} 
-                onChange = {(e) => setMinutes(e.target.value)} 
-                type = "number"
-                min = "0"
-                max = "45"
-                step = "15"
-                placeholder = "Min"/>
+                value = {time} 
+                onChange = {(e) => setTime(e.target.value)} 
+                type = "time"
+                step = "900"/>
 
             <input 
                 value = {covers} 
