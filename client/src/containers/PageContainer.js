@@ -14,7 +14,6 @@ class PageContainer extends React.Component {
 
       bookings: null,
       tables: null,
-      data: null,
 
       //State for Date Filtering
 
@@ -101,8 +100,8 @@ class PageContainer extends React.Component {
 
     handleBookingTableSubmit(submittedBookingTable) {
         submittedBookingTable.id = Date.now()
-        const updatedBookingTable = [...this.state.data, submittedBookingTable]
-        this.setState({ data: updatedBookingTable })
+        const updatedBookingTable = [...this.state.bookings, submittedBookingTable]
+        this.setState({bookings: updatedBookingTable })
     }
 
   render() {

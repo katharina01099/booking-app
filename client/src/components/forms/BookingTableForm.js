@@ -40,7 +40,7 @@ class BookingTableForm extends Component {
       time: this.state.time,
       numPeople: this.state.numPeople
     };
-    this.props.onBookingTableSubmit(newBookingTable);
+    this.props.handleBookingTableSubmit(newBookingTable);
     this.setState({ date: '', time: '', numPeople: '' });
   }
 
