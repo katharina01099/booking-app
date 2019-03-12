@@ -8,6 +8,7 @@ const BookingDetail = (props) => {
             <li>Date: {props.date}</li>
             <li>Time: {props.time}</li>
             <li>Covers: {props.numPeople}</li>
+            <li>Table:</li>
             <button onClick={() => {props.delete(props.id)}}>Cancel Booking</button>
             <hr></hr>
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import BookingBox from '../components/bookings/BookingBox';
 import BookingTableForm from '../components/forms/BookingTableForm';
-
+import CustomerList from '../components/customers/CustomerList';
 import TableBox from '../components/tables/TableBox';
 import EditForm from '../components/forms/EditForm';
 
@@ -14,6 +14,7 @@ class PageContainer extends React.Component {
 
       bookings: null,
       tables: null,
+      customers: null,
 
       //State for Date Filtering
 
@@ -51,6 +52,14 @@ class PageContainer extends React.Component {
     fetch(url_tables)
       .then(res => res.json())
       .then(data => this.setState({ tables: data._embedded.diningTables }))
+      .catch(err => console.error(err));
+
+    //Get all customers from db on load
+
+    const url_customers = 'http://localhost:8080/customers';
+    fetch(url_customers)
+      .then(res => res.json())
+      .then(data => this.setState({ customers: data._embedded.customers }))
       .catch(err => console.error(err));
   }
 
@@ -101,6 +110,7 @@ class PageContainer extends React.Component {
     return (
       <div className="page-container">
         <BookingTableForm />
+        <CustomerList customers = {this.state.customers}/>
         <TableBox tables={this.state.tables} />
         <BookingBox
           bookings={this.state.bookings}
