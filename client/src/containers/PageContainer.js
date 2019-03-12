@@ -95,9 +95,10 @@ class PageContainer extends React.Component {
     }
 
     handleEdit(booking){
-        this.setState({editable: false, selectedId: null});
-        console.log(booking)
+    
 
+        
+        this.setState({editable: false, selectedId: null});
     }
 
     deleteBooking(id) {
@@ -172,56 +173,53 @@ class PageContainer extends React.Component {
   }
   
 
-  submitForm(){
-      const newCustomer = {name:this.state.newName, phoneNumber: this.state.newPhoneNumber}
-      const url = "http://localhost:8080/customers/";
+    submitForm(){
+        const newCustomer = {name:this.state.newName, phoneNumber: this.state.newPhoneNumber}
+        const url = "http://localhost:8080/customers/";
   
-      fetch(url, {
-          method: "post",
-          body: JSON.stringify(newCustomer),
-          headers: {
-            "Content-Type": "application/json"
-          }
-      })
-      .then(res => res.json())
-      .then(data => 
-        fetch("http://localhost:8080/bookings", {
+        fetch(url, {
             method: "post",
-            body: JSON.stringify({
-                time: this.state.newTime, 
-                date:  this.state.newDate, 
-                numPeople:  this.state.newCovers, 
-                customer: data._links.customer.href, 
-                diningTable: "http://localhost:8080/diningTables/" + this.state.newTableNumber}),
+            body: JSON.stringify(newCustomer),
             headers: {
                 "Content-Type": "application/json"
-            }   
+            }
         })
+        .then(res => res.json())
+        .then(data => 
+            fetch("http://localhost:8080/bookings", {
+                   method: "post",
+                   body: JSON.stringify({
+                        time: this.state.newTime, 
+                        date:  this.state.newDate, 
+                        numPeople:  this.state.newCovers, 
+                        customer: data._links.customer.href, 
+                        diningTable: "http://localhost:8080/diningTables/" + this.state.newTableNumber}),
+                   headers: {
+                        "Content-Type": "application/json"
+                   }   
+               })
+               .then(
+                    fetch("http://localhost:8080/bookings")
+                       .then(res => res.json())
+                       .then(data => this.setState({bookings: data._embedded.bookings}))
+               )
+               .catch(err => console.error(err))
+               )
+
         .catch(err => console.error(err))
-        )
 
-      .catch(err => console.error(err));
-
-
-
-      console.log("I have submitted to db");
-      this.setState(this.state);
-
-
-
-
-    //   const newBooking = {name: this.state.newName,
-    //     date: this.state.newDate,
-    //     time: this.state.newTime,
-    //     phoneNumber: this.state.newPhoneNumber,
-    //     numPeople: this.state.newCovers,
-    //     table: "http://localhost:8080/diningTables/" + this.state.newTableNumber}
-    //   const url = "http://localhost:8080/bookings"
-    //   fetch(url, {
-    //       method: 'POST',
-    //       body: JSON.stringify(newBooking)
-    //   })
-    //   .catch(err => console.error(err))
+        //   const newBooking = {name: this.state.newName,
+        //     date: this.state.newDate,
+        //     time: this.state.newTime,
+        //     phoneNumber: this.state.newPhoneNumber,
+        //     numPeople: this.state.newCovers,
+        //     table: "http://localhost:8080/diningTables/" + this.state.newTableNumber}
+        //   const url = "http://localhost:8080/bookings"
+        //   fetch(url, {
+        //       method: 'POST',
+        //       body: JSON.stringify(newBooking)
+        //   })
+        //   .catch(err => console.error(err))
     }
   
 
