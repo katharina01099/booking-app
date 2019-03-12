@@ -73,7 +73,7 @@ class PageContainer extends React.Component {
     }
 
     handleEdit(booking){
-        
+        this.setState({editable: false, selectedId: null});
         console.log(booking)
 
     }
