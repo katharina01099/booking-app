@@ -33,7 +33,7 @@ class BookingTableForm extends Component {
     handleSubmit(e){
     e.preventDefault();
     const newBookingTable = {date: this.state.date, time: this.state.time, numPeople: this.state.numPeople}
-    this.props.onBookingTableSubmit(newBookingTable)
+    this.props.handleBookingTableSubmit(newBookingTable)
     this.setState({date: '', time: '', numPeople: ''})
   }
 
