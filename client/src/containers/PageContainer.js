@@ -6,35 +6,35 @@ import TableBox from '../components/tables/TableBox';
 import EditForm from '../components/forms/EditForm';
 
 class PageContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    constructor(props) {
+        super(props);
+        this.state = {
 
-      //State for Initial Database Pulls
+        //State for Initial Database Pulls
 
-      bookings: null,
-      tables: null,
-      customers: null,
+        bookings: null,
+        tables: null,
+        customers: null,
 
-      //State for Date Filtering
+        //State for Date Filtering
 
-      isFiltered: false,
-      filterDate: null,
-      filteredBookings: null,
+        isFiltered: false,
+        filterDate: null,
+        filteredBookings: null,
 
-      //State for Editing
+        //State for Editing
 
-      editable: false,
-      selectedId: null
-    };
+        editable: false,
+        selectedId: null
+        };
 
-    //Bindings go here
+        //Bindings go here
 
-    this.onEdit = this.onEdit.bind(this);
-    this.updateBookingsList = this.updateBookingsList.bind(this);
-    this.deleteBooking = this.deleteBooking.bind(this);
-    this.handleDateFilter = this.handleDateFilter.bind(this);
-  }
+        this.onEdit = this.onEdit.bind(this);
+        this.updateBookingsList = this.updateBookingsList.bind(this);
+        this.deleteBooking = this.deleteBooking.bind(this);
+        this.handleDateFilter = this.handleDateFilter.bind(this);
+    }
 
   componentDidMount() {
 
@@ -61,40 +61,47 @@ class PageContainer extends React.Component {
       .then(res => res.json())
       .then(data => this.setState({ customers: data._embedded.customers }))
       .catch(err => console.error(err));
-  }
-
-  onEdit(id) {
-    this.setState({ editable: true, selectedId: id });
-  }
-
-  deleteBooking(id) {
-    const url = 'http://localhost:8080/bookings/' + id;
-    fetch(url, {
-      method: 'DELETE'
-    })
-      .then(this.updateBookingsList(id))
-      .then(this.setState({ state: this.state }))
-      .catch(err => console.error(err));
-  }
-
-  updateBookingsList(id) {
-    const bookingList = this.state.bookings;
-    //Ensure that bookings are redrawn if modified while filtered.
-    if (this.state.isFiltered) {
-      this.handleDateFilter(this.state.dateString);
-    }
-    let index = null;
-    console.log(bookingList);
-    for (let i = 0; i < bookingList.length; i++) {
-      let booking = bookingList[i];
-      if (booking.id === id) {
-        index = i;
-      }
     }
 
-    bookingList.splice(index, 1);
-    this.setState({ bookings: bookingList });
-  }
+    // handle all booking edit functionality
+    onEdit(id) {
+        this.setState({ editable: true, selectedId: id });
+    }
+
+    handleEdit(booking){
+        const url_edit = 'http://localhost:8080/bookings/' + booking.id + "/edit" ;
+       
+
+    }
+
+    deleteBooking(id) {
+        const url = 'http://localhost:8080/bookings/' + id;
+        fetch(url, {
+        method: 'DELETE'
+        })
+        .then(this.updateBookingsList(id))
+        .then(this.setState({ state: this.state }))
+        .catch(err => console.error(err));
+    }
+
+    updateBookingsList(id) {
+        const bookingList = this.state.bookings;
+        //Ensure that bookings are redrawn if modified while filtered.
+        if (this.state.isFiltered) {
+        this.handleDateFilter(this.state.dateString);
+        }
+        let index = null;
+        console.log(bookingList);
+        for (let i = 0; i < bookingList.length; i++) {
+            let booking = bookingList[i];
+            if (booking.id === id) {
+                index = i;
+            }
+        }
+
+        bookingList.splice(index, 1);
+        this.setState({ bookings: bookingList });
+    }
 
   handleDateFilter(dateString) {
     const url_filtered =
