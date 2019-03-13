@@ -66,6 +66,7 @@ class BookingTableForm extends Component {
   render() {
     return (
       <form ref={this.props.ValidateFormRef1} className="booking-table-form" onSubmit={this.handleSubmit}>
+        <h2>New Booking</h2>
         <table>
           <tbody> 
             <tr>

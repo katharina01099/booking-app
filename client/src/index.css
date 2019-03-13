@@ -21,10 +21,10 @@ code {
 }
 
 h1{
-  color: #4B3B40;
+  color: #BDBF09;
 }
 h2 {
-  color: #2E5266;
+  color: #BDBF09;
 }
 
 .booking-table-form input {
@@ -48,7 +48,7 @@ h2 {
 
 #appheader{
   display: inline;
-  color: #1B264F;
+  color: #BDBF09;
   margin: 10px;
   border-radius: 5px;
 

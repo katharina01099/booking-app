@@ -4,7 +4,7 @@ import "./TableList.css"
 
 const TableList = (props) => {
     if (!props.tables) return null;
-    let tableHeader = <h4>All Tables</h4>
+    let tableHeader = <h2>Available Tables</h2>
     let didFilter = false;
     const tables = props.tables.map(table => {
         if (props.CurrentCovers > table.tableCapacity){ 
