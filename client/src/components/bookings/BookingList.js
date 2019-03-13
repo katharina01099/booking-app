@@ -7,10 +7,9 @@ import "../../index.css";
 const BookingList = (props) => {
     if (!props.bookings.bookings) return null;
     let bookings = null;
-    let header = <h2> All Bookings </h2>
 
     if (props.isFiltered){
-    header = <h4> Selected Date's Bookings </h4>
+
     bookings = props.filteredBookings.map(booking => {
         if (props.selectedId === booking.id) {
             return <EditForm edit = {booking} handleEdit = {props.handleEdit}/>
@@ -54,7 +53,6 @@ const BookingList = (props) => {
 
     return (
         <div className="booking-list">
-            {header}
             {bookings}
         </div>
     )
