@@ -79,6 +79,7 @@ class BookingTableForm extends Component {
           type="time"
           placeholder="Time of booking"
           value={this.state.time}
+          step="900"
           onChange={this.handleTimeChange}
           required
         />
@@ -97,6 +98,8 @@ class BookingTableForm extends Component {
         placeholder="Phone Number"
         value={this.state.phoneNumber}
         onChange={this.handlePhoneNumber}
+        pattern="[0-9]{11}"
+        title="Enter a 11 digit phone number"
         required
         />
       </form>
