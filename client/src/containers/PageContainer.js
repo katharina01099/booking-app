@@ -65,34 +65,11 @@ class PageContainer extends React.Component {
     }
 
     componentDidMount() {
-
-        //Get all bookings from database on load
-
-        const url_bookings = 'http://localhost:8080/bookings';
-        fetch(url_bookings)
-        .then(res => res.json())
-        .then(data => this.setState({ bookings: data._embedded.bookings }))
-        .catch(err => console.error(err));
-
-        //Get all tables from database on load
-
-        const url_tables = 'http://localhost:8080/diningTables';
-        fetch(url_tables)
-        .then(res => res.json())
-        .then(data => this.setState({ tables: data._embedded.diningTables }))
-        .catch(err => console.error(err));
-
-        //Get all customers from db on load
-
-        const url_customers = 'http://localhost:8080/customers';
-        fetch(url_customers)
-        .then(res => res.json())
-        .then(data => this.setState({ customers: data._embedded.customers }))
-        .catch(err => console.error(err));
+        this.updateDbToState();
     }
 
     updateDbToState() {
-        const url_bookings = 'http://localhost:8080/bookings';
+        const url_bookings = 'http://localhost:8080/bookings?sort=date,asc';
         fetch(url_bookings)
         .then(res => res.json())
         .then(data => this.setState({ bookings: data._embedded.bookings }))
@@ -108,7 +85,7 @@ class PageContainer extends React.Component {
 
         //Get all customers from db on load
 
-        const url_customers = 'http://localhost:8080/customers';
+        const url_customers = 'http://localhost:8080/customers?sort=numVisit,desc';
         fetch(url_customers)
         .then(res => res.json())
         .then(data => this.setState({ customers: data._embedded.customers }))
@@ -209,20 +186,28 @@ class PageContainer extends React.Component {
 
     submitForm(){
         if (!this.validate()) {return}
-        const existingCustomer = this.getExistingCustomer()
+        let customer = this.getExistingCustomer();
+        let setMethod = null;
+        let setUrl = null;
 
-        if(existingCustomer){
-            console.log("This customer already exists! Their name is " + existingCustomer.name)
+        if(customer){
+            console.log("This customer already exists! They have visited " + customer.numVisit + " times before")
             //TODO Call an update method here that increments the visit counter and then makes the booking as before
-            return
+            customer.numVisit += 1;
+            console.log(customer.numVisit)
+            setMethod = "PUT";
+            console.log(setMethod);
+            setUrl = "http://localhost:8080/customers/" + customer.id;
+        } else {
+            setMethod = "POST";
+            customer = {name:this.state.newName, phoneNumber: this.state.newPhoneNumber, numVisit: 1};
+            setUrl = "http://localhost:8080/customers/";
         }
 
-        const newCustomer = {name:this.state.newName, phoneNumber: this.state.newPhoneNumber}
-        const url = "http://localhost:8080/customers/";
     
-        fetch(url, {
-            method: "post",
-            body: JSON.stringify(newCustomer),
+        fetch(setUrl, {
+            method: setMethod,
+            body: JSON.stringify(customer),
             headers: {
                 "Content-Type": "application/json"
             }
@@ -230,7 +215,7 @@ class PageContainer extends React.Component {
         .then(res => res.json())
         .then(data => 
             fetch("http://localhost:8080/bookings", {
-                method: "post",
+                method: "POST",
                 body: JSON.stringify({
                     time: this.state.newTime, 
                     date:  this.state.newDate, 
@@ -254,7 +239,7 @@ class PageContainer extends React.Component {
     getExistingCustomer(){
         if(this.state.customers){
             const filteredCustomers = this.state.customers.filter(customer => {
-                return (customer.name === this.state.newName)
+                return (customer.phoneNumber === this.state.newPhoneNumber)
             }) 
             return filteredCustomers[0]
         }

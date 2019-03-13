@@ -36,10 +36,10 @@ public class DataLoader implements ApplicationRunner {
     }
 
         public void run(ApplicationArguments args){
-        Customer customer1 = new Customer("Alex", "0877997979");
+        Customer customer1 = new Customer("Alex", "08779979791");
         customerRepository.save(customer1);
 
-        Customer customer2 = new Customer("Colin", "0797997979");
+        Customer customer2 = new Customer("Colin", "07979979791");
         customerRepository.save(customer2);
 
         Customer customer3 = new Customer("Del", "07676769797");
@@ -48,7 +48,7 @@ public class DataLoader implements ApplicationRunner {
         Customer customer4 = new Customer("John", "07676723797");
         customerRepository.save(customer4);
 
-        Customer customer5 = new Customer("Sian", "076767200797");
+        Customer customer5 = new Customer("Sian", "07676720079");
         customerRepository.save(customer5);
 
 
