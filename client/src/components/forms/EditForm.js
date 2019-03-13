@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 const EditForm = (props) => {
     const [booking, setBooking] = useState({
         name: props.edit.customer.name,
-        date: props.edit.date, 
+        date: props.edit.date,
         time: props.edit.time,
         phoneNumber: props.edit.customer.phoneNumber,
         covers: props.edit.numPeople ,
@@ -28,24 +28,24 @@ const EditForm = (props) => {
                 onChange  = {handleChange}
                 type = "text"/>
 
-            <input 
+            <input
                 id = "date"
-                defaultValue = {props.edit.date} 
-                onChange = {handleChange} 
+                defaultValue = {props.edit.date}
+                onChange = {handleChange}
                 type = "date"/>
-           
-            <input 
+
+            <input
                 id = "time"
-                defaultValue = {props.edit.time} 
-                onChange = {handleChange} 
+                defaultValue = {props.edit.time}
+                onChange = {handleChange}
                 type = "time"
                 step = "900"/>
 
-            <input 
+            <input
                 id = "covers"
-                defaultValue = {props.edit.numPeople} 
-                onChange = {handleChange} 
-                type = "number" 
+                defaultValue = {props.edit.numPeople}
+                onChange = {handleChange}
+                type = "number"
                 placeholder = "covers"/>
 
             <input

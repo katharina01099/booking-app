@@ -96,3 +96,14 @@ li {list-style-type: none;}
 width: 60px;
 height: 60px;
 }
+.cancel-button:hover{
+  background-color: #8C202B;
+  color: yellow;
+  border-radius: 4px;
+}
+
+.edit-button:hover{
+  background-color: blue;
+  color: yellow;
+  border-radius: 4px;
+}

@@ -11,8 +11,8 @@ const BookingDetail = (props) => {
             <li>Covers: {props.numPeople}</li>
             <li>Table: {props.tableNumber}</li>
             <li>Phone Number: {props.phoneNumber}</li>
-            <button onClick={() => {props.delete(props.id)}}>Cancel Booking</button>
-            <button onClick={() => {props.edit(props.id)}}>Edit Booking</button>
+            <button class="cancel-button" onClick={() => {props.delete(props.id)}}>Cancel Booking</button>
+            <button class="edit-button" onClick={() => {props.edit(props.id)}}>Edit Booking</button>
             <hr></hr>
         </div>
     )
