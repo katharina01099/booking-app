@@ -27,9 +27,11 @@ h2 {
   color: #2E5266;
 }
 
+.booking-table-form input {
+  margin: 10px;
+  width: 150px;
 
-
-
+}
 
 .page-container {
   display: grid;

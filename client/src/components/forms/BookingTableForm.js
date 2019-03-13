@@ -66,48 +66,90 @@ class BookingTableForm extends Component {
   render() {
     return (
       <form ref={this.props.ValidateFormRef1} className="booking-table-form" onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          placeholder="Name"
-          value={this.state.name}
-          onChange={this.handleNameChange}
-          required
-        />
-        <input
-          type="date"
-          placeholder="Date of booking"
-          value={this.state.date}
-          onChange={this.handleDateChange}
-          required
-        />
-
-        <input
-          type="time"
-          placeholder="Time of booking"
-          value={this.state.time}
-          step="900"
-          onChange={this.handleTimeChange}
-          required
-        />
-        <input
-          type="number"
-          placeholder="Number of people booking"
-          value={this.state.numPeople}
-          onChange={this.handleNumOfPeopleChange}
-          min = '1'
-          max = '20'
-          required
-        />
-
-        <input
-        type="text"
-        placeholder="Phone Number"
-        value={this.state.phoneNumber}
-        onChange={this.handlePhoneNumber}
-        pattern="[0-9]{11}"
-        title="Enter a 11 digit phone number"
-        required
-        />
+        <table>
+          <tbody> 
+            <tr>
+              <td>
+                <label>Customer Name: </label>
+              </td>
+              <td>
+              <input
+                type="text"
+                id = "name"
+                placeholder="Name"
+                value={this.state.name}
+                onChange={this.handleNameChange}
+                required
+              />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Date: </label>
+              </td>
+              <td>
+              <input
+                type="date"
+                id="date"
+                placeholder="Date of booking"
+                value={this.state.date}
+                onChange={this.handleDateChange}
+                required
+              />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Time: </label>
+              </td>
+              <td>
+              <input
+                type="time"
+                id="time"
+                placeholder="Time of booking"
+                value={this.state.time}
+                step="900"
+                onChange={this.handleTimeChange}
+                required
+              />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Covers: </label>
+              </td>
+              <td>
+              <input
+                type="number"
+                id="covers"
+                placeholder="Number of people booking"
+                value={this.state.numPeople}
+                onChange={this.handleNumOfPeopleChange}
+                min = '1'
+                max = '20'
+                required
+              />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Tel: </label>
+              </td>
+              <td>
+              <input
+              type="text"
+              id="tel"
+              placeholder="Phone Number"
+              value={this.state.phoneNumber}
+              onChange={this.handlePhoneNumber}
+              pattern="[0-9]{11}"
+              title="Enter a 11 digit phone number"
+              required
+              />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </form>
     );
   }
