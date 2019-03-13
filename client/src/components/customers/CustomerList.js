@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import CustomerDetail from './CustomerDetail';
 
 function CustomerList(props) {
@@ -6,7 +6,7 @@ function CustomerList(props) {
     let customers = null;
 
     customers = props.customers.map(customer => {
-        return <CustomerDetail customerInfo = {customer}/>
+        return <CustomerDetail key = {customer.id} customerInfo = {customer}/>
     })
     
     return (

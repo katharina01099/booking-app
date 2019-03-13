@@ -33,7 +33,7 @@ public class Customer {
     public Customer(String name, String phoneNumber) {
         this.name = name;
         this.phoneNumber = phoneNumber;
-        this.numVisit = 0;
+        this.numVisit = 1;
         this.bookings = new ArrayList<>();
     }
 
