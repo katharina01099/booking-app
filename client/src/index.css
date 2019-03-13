@@ -8,7 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: #BBC7CE;
+  background-color: #92A8AF;
   background-size: auto;
   background-repeat: no-repeat;
   background-position: absolute;
@@ -48,9 +48,6 @@ h2 {
 
 }
 
-.booking-detail{
-  color: #416173;
-}
 
 .booking-table-form{
   margin: 10px;
@@ -66,13 +63,13 @@ h2 {
 .table-box{
   margin: 10px;
   padding: 10px;
-  background-color: #E2C0DA;
+  background-color: #7C9299;
 }
 
 .booking-box{
   margin: 10px;
   padding: 10px;
-  background-color: #9DB17C;
+  background-color: #7C9299;
 }
 
 .booking-list{
@@ -80,7 +77,7 @@ h2 {
   padding: 10px;
 }
 
-.booking-details{
+.booking-detail{
   margin: 10px;
   padding: 10px;
   list-style-type:none;

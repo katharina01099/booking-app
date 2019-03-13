@@ -253,39 +253,39 @@ class PageContainer extends React.Component {
 
     render() {
         return (
-        <div className="page-container">
-        <div className="columnwrapper">
-            <BookingTableForm
+          <div className="page-container">
+            <div className="columnwrapper">
+              <BookingTableForm
                 handleBookingTableSubmit={this.handleBookingTableSubmit}
-                handleNameDynamic = {this.handleNameDynamic}
-                handleDateDynamic = {this.handleDateDynamic}
-                handleTimeDynamic = {this.handleTimeDynamic}
-                handlePhoneNumberDynamic = {this.handlePhoneNumberDynamic}
-                handleCoversDynamic = {this.handleCoversDynamic}
-                ValidateFormRef1 = {this.formCol1}
-                />
-                <button onClick = {this.submitForm}>Submit booking</button>
-            <CustomerList customers = {this.state.customers}/>
-        </div>
-            <TableBox 
-                tables={this.state.tables} 
-                handleTableDynamic = {this.handleTableDynamic}
-                ValidateFormRef2 = {this.formCol2}
-                CurrentCovers = {this.state.newCovers}
-            />
+                handleNameDynamic={this.handleNameDynamic}
+                handleDateDynamic={this.handleDateDynamic}
+                handleTimeDynamic={this.handleTimeDynamic}
+                handlePhoneNumberDynamic={this.handlePhoneNumberDynamic}
+                handleCoversDynamic={this.handleCoversDynamic}
+                ValidateFormRef1={this.formCol1}
+              />
+              <button onClick={this.submitForm}>Submit booking</button>
+              <TableBox
+                tables={this.state.tables}
+                handleTableDynamic={this.handleTableDynamic}
+                ValidateFormRef2={this.formCol2}
+                CurrentCovers={this.state.newCovers}
+              />
+            </div>
             <BookingBox
-                bookings={this.state.bookings}
-                filteredBookings={this.state.filteredBookings}
-                isFiltered={this.state.isFiltered}
-                edit={this.onEdit}
-                delete={this.deleteBooking}
-                handleDateFilter={this.handleDateFilter}
-                editable = {this.state.editable}
-                selectedId = {this.state.selectedId}
-                handleEdit = {this.handleEdit}
-                resetFilter = {this.resetFilter}
+              bookings={this.state.bookings}
+              filteredBookings={this.state.filteredBookings}
+              isFiltered={this.state.isFiltered}
+              edit={this.onEdit}
+              delete={this.deleteBooking}
+              handleDateFilter={this.handleDateFilter}
+              editable={this.state.editable}
+              selectedId={this.state.selectedId}
+              handleEdit={this.handleEdit}
+              resetFilter={this.resetFilter}
             />
-        </div>
+            <CustomerList customers={this.state.customers} />
+          </div>
         );
     }
 }
