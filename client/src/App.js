@@ -7,7 +7,7 @@ class App extends Component {
     return (
       <div className = "window">
       <img id="applogo"src="logo.png" align="right"/>
-        <h1 id ='appheader'>My booking manager</h1>
+        <h1 id ='appheader'>RUSH HOUR</h1>
         <PageContainer/>
       </div>
     );
