@@ -24,11 +24,7 @@ const TableList = (props) => {
     return (
         <div className="table-list">
         <form ref={props.ValidateFormRef2}>
-<<<<<<< HEAD
-            <h2>All Tables</h2>
-=======
             {tableHeader}
->>>>>>> dev
             {tables}
         </form>
         </div>

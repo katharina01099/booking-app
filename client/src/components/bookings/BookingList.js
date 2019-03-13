@@ -52,11 +52,7 @@ const BookingList = (props) => {
 
     return (
         <div className="booking-list">
-<<<<<<< HEAD
-            
-=======
             {header}
->>>>>>> dev
             {bookings}
         </div>
     )

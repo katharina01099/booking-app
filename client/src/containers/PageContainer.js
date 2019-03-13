@@ -3,12 +3,7 @@ import BookingBox from '../components/bookings/BookingBox';
 import BookingTableForm from '../components/forms/BookingTableForm';
 import CustomerList from '../components/customers/CustomerList';
 import TableBox from '../components/tables/TableBox';
-<<<<<<< HEAD
 import EditForm from '../components/forms/EditForm';
-import "../index.css";
-=======
-// import EditForm from '../components/forms/EditForm';
->>>>>>> dev
 
 
 class PageContainer extends React.Component {
