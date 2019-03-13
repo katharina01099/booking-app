@@ -1,5 +1,6 @@
 import React from "react";
 import TableDetail from "./TableDetail"
+import "./TableList.css"
 
 const TableList = (props) => {
     if (!props.tables) return null;
@@ -26,6 +27,7 @@ const TableList = (props) => {
         <form ref={props.ValidateFormRef2}>
             {tableHeader}
             {tables}
+            <input required type="radio" name="tableSelector" id="hiddenOption"/>
         </form>
         </div>
     )
