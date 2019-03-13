@@ -52,6 +52,8 @@ h2 {
 .booking-table-form{
   margin: 10px;
   padding: 10px;
+  background-color: #7C9299;
+  box-shadow: 5px 5px #888888;
 
 }
 
@@ -91,6 +93,6 @@ h2 {
 li {list-style-type: none;}
 
 #applogo{
-width: 80px;
-height: 80px;
+width: 60px;
+height: 60px;
 }
