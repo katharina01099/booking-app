@@ -11,6 +11,7 @@ function CustomerList(props) {
     
     return (
         <div className = "customer-list">
+            <h2>All Customers</h2>
             {customers}
         </div>
     )
