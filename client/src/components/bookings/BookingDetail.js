@@ -4,7 +4,6 @@ import "../../index.css";
 const BookingDetail = (props) => {
     return (
         <div className="booking-detail">
-            <li>id: {props.id}</li>
             <li>Name: {props.name}</li>
             <li>Date: {props.date}</li>
             <li>Time: {props.time}</li>

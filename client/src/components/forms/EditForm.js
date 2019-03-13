@@ -7,7 +7,9 @@ const EditForm = (props) => {
         time: props.edit.time,
         phoneNumber: props.edit.customer.phoneNumber,
         covers: props.edit.numPeople ,
-        table: props.edit.diningTable.id});
+        table: props.edit.diningTable.id,
+        customerId: props.edit.customer.id
+    });
 
     const handleChange = (e) => {
         const {id, value} = e.target;

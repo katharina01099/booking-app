@@ -98,16 +98,33 @@ class PageContainer extends React.Component {
     }
 
     handleEdit(booking){
+        const customerUrl = 'http://localhost:8080/customers/' + booking.customerId
         const url = 'http://localhost:8080/bookings/' + this.state.selectedId;
-        fetch(url, {
-            method: 'PUT',
-            body: JSON.stringify({numPeople: booking.covers, date: booking.date, time: booking.time}),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        .then(res => res.json())
-        .then(() => this.updateDbToState())
+        let customer = null;
+
+        fetch(customerUrl)
+            .then(res => res.json())
+            .then(data => customer = data)
+            .then(() => 
+                fetch(customerUrl, {
+                    method: 'PUT',
+                    body: JSON.stringify({name: booking.name, phoneNumber: booking.phoneNumber, numVisit: customer.numVisit}),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+                .then(() => 
+                    fetch(url, {
+                    method: 'PUT',
+                    body: JSON.stringify({numPeople: booking.covers, date: booking.date, time: booking.time}),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                    })
+                    .then(res => res.json())
+                    .then(() => this.updateDbToState()))
+        )
+        
 
         this.setState({editable: false, selectedId: null});
     }
