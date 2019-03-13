@@ -8,7 +8,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: #BBC7CE;
+  background-color: #92A8AF;
   background-size: auto;
   background-repeat: no-repeat;
   background-position: absolute;
@@ -34,7 +34,6 @@ h2 {
 .page-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  /* background-color: rgba(255, 255, 255, 0.8); */
   border-radius: 5px;
   margin: 10px;
   padding: 10px;
@@ -44,15 +43,11 @@ h2 {
 #appheader{
   display: inline;
   color: #1B264F;
-  /* background-color: rgba(255, 255, 255, 0.8); */
   margin: 10px;
   border-radius: 5px;
 
 }
 
-.booking-detail{
-  color: #274690;
-}
 
 .booking-table-form{
   margin: 10px;
@@ -63,16 +58,22 @@ h2 {
 .customer-list{
   margin: 10px;
   padding: 10px;
+  background-color: #7C9299;
+  box-shadow: 5px 5px #888888;
 }
 
 .table-box{
   margin: 10px;
   padding: 10px;
+  background-color: #7C9299;
+  box-shadow: 5px 5px #888888;
 }
 
 .booking-box{
   margin: 10px;
   padding: 10px;
+  background-color: #7C9299;
+  box-shadow: 5px 5px #888888;
 }
 
 .booking-list{
@@ -80,7 +81,7 @@ h2 {
   padding: 10px;
 }
 
-.booking-details{
+.booking-detail{
   margin: 10px;
   padding: 10px;
   list-style-type:none;
