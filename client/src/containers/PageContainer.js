@@ -61,34 +61,58 @@ class PageContainer extends React.Component {
         this.submitForm = this.submitForm.bind(this);
         this.validate = this.validate.bind(this);
         this.getExistingCustomer = this.getExistingCustomer.bind(this);
-
+        this.updateDbToState = this.updateDbToState.bind(this);
     }
 
-  componentDidMount() {
+    componentDidMount() {
 
-    //Get all bookings from database on load
+        //Get all bookings from database on load
 
-    const url_bookings = 'http://localhost:8080/bookings';
-    fetch(url_bookings)
-      .then(res => res.json())
-      .then(data => this.setState({ bookings: data._embedded.bookings }))
-      .catch(err => console.error(err));
+        const url_bookings = 'http://localhost:8080/bookings';
+        fetch(url_bookings)
+        .then(res => res.json())
+        .then(data => this.setState({ bookings: data._embedded.bookings }))
+        .catch(err => console.error(err));
 
-    //Get all tables from database on load
+        //Get all tables from database on load
 
-    const url_tables = 'http://localhost:8080/diningTables';
-    fetch(url_tables)
-      .then(res => res.json())
-      .then(data => this.setState({ tables: data._embedded.diningTables }))
-      .catch(err => console.error(err));
+        const url_tables = 'http://localhost:8080/diningTables';
+        fetch(url_tables)
+        .then(res => res.json())
+        .then(data => this.setState({ tables: data._embedded.diningTables }))
+        .catch(err => console.error(err));
 
-    //Get all customers from db on load
+        //Get all customers from db on load
 
-    const url_customers = 'http://localhost:8080/customers';
-    fetch(url_customers)
-      .then(res => res.json())
-      .then(data => this.setState({ customers: data._embedded.customers }))
-      .catch(err => console.error(err));
+        const url_customers = 'http://localhost:8080/customers';
+        fetch(url_customers)
+        .then(res => res.json())
+        .then(data => this.setState({ customers: data._embedded.customers }))
+        .catch(err => console.error(err));
+    }
+
+    updateDbToState() {
+        const url_bookings = 'http://localhost:8080/bookings';
+        fetch(url_bookings)
+        .then(res => res.json())
+        .then(data => this.setState({ bookings: data._embedded.bookings }))
+        .catch(err => console.error(err));
+
+        //Get all tables from database on load
+
+        const url_tables = 'http://localhost:8080/diningTables';
+        fetch(url_tables)
+        .then(res => res.json())
+        .then(data => this.setState({ tables: data._embedded.diningTables }))
+        .catch(err => console.error(err));
+
+        //Get all customers from db on load
+
+        const url_customers = 'http://localhost:8080/customers';
+        fetch(url_customers)
+        .then(res => res.json())
+        .then(data => this.setState({ customers: data._embedded.customers }))
+        .catch(err => console.error(err));
     }
 
     // handle all booking edit functionality
@@ -106,12 +130,9 @@ class PageContainer extends React.Component {
             }
         })
         .then(res => res.json())
-        .then(fetch('http://localhost:8080/bookings', {
-            headers: { 'Content-Type': 'application/json' }
-        }))
+        .then(() => this.updateDbToState())
 
         this.setState({editable: false, selectedId: null});
-
     }
 
     deleteBooking(id) {
@@ -143,99 +164,91 @@ class PageContainer extends React.Component {
         this.setState({ bookings: bookingList });
     }
 
-  handleDateFilter(dateString) {
-    const url_filtered =
-      'http://localhost:8080/bookings/' + dateString + '/date';
-    fetch(url_filtered)
-      .then(res => res.json())
-      .then(data => this.setState({ filteredBookings: data, isFiltered: true }))
-      .catch(err => console.error(err));
-  }
+    handleDateFilter(dateString) {
+        const url_filtered =
+        'http://localhost:8080/bookings/' + dateString + '/date';
+        fetch(url_filtered)
+        .then(res => res.json())
+        .then(data => this.setState({ filteredBookings: data, isFiltered: true }))
+        .catch(err => console.error(err));
+    }
 
-  resetFilter(){
-      this.setState({isFiltered: false})
-  }
+    resetFilter(){
+        this.setState({isFiltered: false})
+    }
 
-  handleBookingTableSubmit(submittedBookingTable) {
-    submittedBookingTable.id = Date.now()
-    const updatedBookingTable = [...this.state.bookings, submittedBookingTable]
-    this.setState({ bookings: updatedBookingTable })
-  }
+    handleBookingTableSubmit(submittedBookingTable) {
+        submittedBookingTable.id = Date.now()
+        const updatedBookingTable = [...this.state.bookings, submittedBookingTable]
+        this.setState({ bookings: updatedBookingTable })
+    }
 
-  handleNameDynamic(name) {
-    this.setState({newName: name});
-  }
+    handleNameDynamic(name) {
+        this.setState({newName: name});
+    }
 
-  handleDateDynamic(date){
-    this.setState({newDate: date});
-  }
+    handleDateDynamic(date){
+        this.setState({newDate: date});
+    }
 
-  handleTimeDynamic(time){
-    this.setState({newTime: time});
-  }
+    handleTimeDynamic(time){
+        this.setState({newTime: time});
+    }
 
-  handlePhoneNumberDynamic(number){
-    this.setState({newPhoneNumber: number});
-  }
-  handleCoversDynamic(covers){
-    this.setState({newCovers: covers});
-  }
+    handlePhoneNumberDynamic(number){
+        this.setState({newPhoneNumber: number});
+    }
+    handleCoversDynamic(covers){
+        this.setState({newCovers: covers});
+    }
 
-  handleTableDynamic(tablenumber){
-    this.setState({newTableNumber: tablenumber});
-  }
+    handleTableDynamic(tablenumber){
+        this.setState({newTableNumber: tablenumber});
+    }
   
 
-  submitForm(){
-      if (!this.validate()) {return}
-      const existingCustomer = this.getExistingCustomer()
+    submitForm(){
+        if (!this.validate()) {return}
+        const existingCustomer = this.getExistingCustomer()
 
-      if(existingCustomer){
-        console.log("This customer already exists! Their name is " + existingCustomer.name)
-        //TODO Call an update method here that increments the visit counter and then makes the booking as before
-        return
-      }
+        if(existingCustomer){
+            console.log("This customer already exists! Their name is " + existingCustomer.name)
+            //TODO Call an update method here that increments the visit counter and then makes the booking as before
+            return
+        }
 
-      const newCustomer = {name:this.state.newName, phoneNumber: this.state.newPhoneNumber}
-      const url = "http://localhost:8080/customers/";
-  
-      fetch(url, {
-          method: "post",
-          body: JSON.stringify(newCustomer),
-          headers: {
-            "Content-Type": "application/json"
-          }
-      })
-      .then(res => res.json())
-      .then(data => 
-        fetch("http://localhost:8080/bookings", {
+        const newCustomer = {name:this.state.newName, phoneNumber: this.state.newPhoneNumber}
+        const url = "http://localhost:8080/customers/";
+    
+        fetch(url, {
             method: "post",
-            body: JSON.stringify({
-                time: this.state.newTime, 
-                date:  this.state.newDate, 
-                numPeople:  this.state.newCovers, 
-                customer: data._links.customer.href, 
-                diningTable: "http://localhost:8080/diningTables/" + this.state.newTableNumber}),
+            body: JSON.stringify(newCustomer),
             headers: {
                 "Content-Type": "application/json"
-            }   
+            }
         })
         .then(res => res.json())
-        .then(data => console.log(data))
-        .then(() => fetch("http://localhost:8080/bookings")
-                .then(res => res.json())
-                .then(data => this.setState({ bookings: data._embedded.bookings }))
-                .catch(err => console.error(err)))
+        .then(data => 
+            fetch("http://localhost:8080/bookings", {
+                method: "post",
+                body: JSON.stringify({
+                    time: this.state.newTime, 
+                    date:  this.state.newDate, 
+                    numPeople:  this.state.newCovers, 
+                    customer: data._links.customer.href, 
+                    diningTable: "http://localhost:8080/diningTables/" + this.state.newTableNumber}),
+                headers: {
+                    "Content-Type": "application/json"
+                }   
+            })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .then(() => this.updateDbToState())
+            .catch(err => console.error(err))
+        ) 
         .catch(err => console.error(err))
-      ) 
-
-      .catch(err => console.error(err))
-
-
-
-    //   this.setState(this.state);
-
     }
+    
     //Existing Customer Checking
 
     getExistingCustomer(){
@@ -247,52 +260,49 @@ class PageContainer extends React.Component {
         }
     }
 
-
-
-  
     //Input Validation Functions
     validate() {
         return (this.formCol1.current.reportValidity() && this.formCol2.current.reportValidity());
     }
 
 
-  render() {
-    return (
-      <div className="page-container">
-      <div className="columnwrapper">
-        <BookingTableForm
-            handleBookingTableSubmit={this.handleBookingTableSubmit}
-            handleNameDynamic = {this.handleNameDynamic}
-            handleDateDynamic = {this.handleDateDynamic}
-            handleTimeDynamic = {this.handleTimeDynamic}
-            handlePhoneNumberDynamic = {this.handlePhoneNumberDynamic}
-            handleCoversDynamic = {this.handleCoversDynamic}
-            ValidateFormRef1 = {this.formCol1}
+    render() {
+        return (
+        <div className="page-container">
+        <div className="columnwrapper">
+            <BookingTableForm
+                handleBookingTableSubmit={this.handleBookingTableSubmit}
+                handleNameDynamic = {this.handleNameDynamic}
+                handleDateDynamic = {this.handleDateDynamic}
+                handleTimeDynamic = {this.handleTimeDynamic}
+                handlePhoneNumberDynamic = {this.handlePhoneNumberDynamic}
+                handleCoversDynamic = {this.handleCoversDynamic}
+                ValidateFormRef1 = {this.formCol1}
+                />
+                <button onClick = {this.submitForm}>Submit booking</button>
+            <CustomerList customers = {this.state.customers}/>
+        </div>
+            <TableBox 
+                tables={this.state.tables} 
+                handleTableDynamic = {this.handleTableDynamic}
+                ValidateFormRef2 = {this.formCol2}
+                CurrentCovers = {this.state.newCovers}
             />
-            <button onClick = {this.submitForm}>Submit booking</button>
-        <CustomerList customers = {this.state.customers}/>
-      </div>
-        <TableBox 
-            tables={this.state.tables} 
-            handleTableDynamic = {this.handleTableDynamic}
-            ValidateFormRef2 = {this.formCol2}
-            CurrentCovers = {this.state.newCovers}
-        />
-        <BookingBox
-          bookings={this.state.bookings}
-          filteredBookings={this.state.filteredBookings}
-          isFiltered={this.state.isFiltered}
-          edit={this.onEdit}
-          delete={this.deleteBooking}
-          handleDateFilter={this.handleDateFilter}
-          editable = {this.state.editable}
-          selectedId = {this.state.selectedId}
-          handleEdit = {this.handleEdit}
-          resetFilter = {this.resetFilter}
-        />
-      </div>
-    );
-  }
+            <BookingBox
+                bookings={this.state.bookings}
+                filteredBookings={this.state.filteredBookings}
+                isFiltered={this.state.isFiltered}
+                edit={this.onEdit}
+                delete={this.deleteBooking}
+                handleDateFilter={this.handleDateFilter}
+                editable = {this.state.editable}
+                selectedId = {this.state.selectedId}
+                handleEdit = {this.handleEdit}
+                resetFilter = {this.resetFilter}
+            />
+        </div>
+        );
+    }
 }
 
 export default PageContainer;
