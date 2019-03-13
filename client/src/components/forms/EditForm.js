@@ -17,44 +17,79 @@ const EditForm = (props) => {
     }
 
     return (
-        <form onSubmit = {(e) => {e.preventDefault(); props.handleEdit(booking)}}>
-            <input
-                id = "name"
-                defaultValue = {props.edit.customer.name}
-                onChange  = {handleChange}
-                type = "text"/>
-
-            <input
-                id = "phoneNumber"
-                defaultValue = {props.edit.customer.phoneNumber}
-                onChange  = {handleChange}
-                type = "text"/>
-
-            <input 
-                id = "date"
-                defaultValue = {props.edit.date} 
-                onChange = {handleChange} 
-                type = "date"/>
-           
-            <input 
-                id = "time"
-                defaultValue = {props.edit.time} 
-                onChange = {handleChange} 
-                type = "time"
-                step = "900"/>
-
-            <input 
-                id = "covers"
-                defaultValue = {props.edit.numPeople} 
-                onChange = {handleChange} 
-                type = "number" 
-                placeholder = "covers"/>
-
-            <input
-                id = "table"
-                defaultValue = {props.edit.diningTable.id}
-                onChange  = {handleChange}
-                type = "text"/>
+        <form className = "edit-form" onSubmit = {(e) => {e.preventDefault(); props.handleEdit(booking)}}>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>    
+                            <label>Name: </label>
+                        </td>
+                        <td>
+                            <input
+                                id = "name"
+                                defaultValue = {props.edit.customer.name}
+                                onChange  = {handleChange}
+                                type = "text"/>
+                        </td>
+                        <td>
+                            <label>Tel :</label>
+                        </td>
+                        <td>
+                            <input
+                                id = "phoneNumber"
+                                defaultValue = {props.edit.customer.phoneNumber}
+                                onChange  = {handleChange}
+                                type = "text"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Date :</label>
+                        </td>
+                        <td>
+                            <input 
+                                id = "date"
+                                defaultValue = {props.edit.date} 
+                                onChange = {handleChange} 
+                                type = "date"/>
+                        </td>
+                        <td>
+                            <label>Time :</label>
+                        </td>
+                        <td>
+                            <input 
+                                id = "time"
+                                defaultValue = {props.edit.time} 
+                                onChange = {handleChange} 
+                                type = "time"
+                                step = "900"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Covers :</label>
+                        </td>
+                        <td>
+                            <input 
+                                id = "covers"
+                                defaultValue = {props.edit.numPeople} 
+                                onChange = {handleChange} 
+                                type = "number" 
+                                placeholder = "covers"/>
+                        </td>
+                        <td>
+                            <label>Table :</label>
+                        </td>
+                        <td>
+                            <input
+                                id = "table"
+                                defaultValue = {props.edit.diningTable.id}
+                                onChange  = {handleChange}
+                                type = "text"/>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
             <button type = "submit">Save Changes</button>
             <hr/>

@@ -30,7 +30,11 @@ h2 {
 .booking-table-form input {
   margin: 10px;
   width: 150px;
+}
 
+.edit-form td{
+  margin: 5px;
+  width: 150px;
 }
 
 .page-container {
