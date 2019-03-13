@@ -220,14 +220,20 @@ class PageContainer extends React.Component {
                 "Content-Type": "application/json"
             }   
         })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .then(() => fetch("http://localhost:8080/bookings")
+                .then(res => res.json())
+                .then(data => this.setState({ bookings: data._embedded.bookings }))
+                .catch(err => console.error(err)))
         .catch(err => console.error(err))
-        )
+      ) 
 
-      .catch(err => console.error(err));
+      .catch(err => console.error(err))
 
 
 
-      this.setState(this.state);
+    //   this.setState(this.state);
 
     }
     //Existing Customer Checking
