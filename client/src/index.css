@@ -95,6 +95,8 @@ li {list-style-type: none;}
 #applogo{
 width: 60px;
 height: 60px;
+position: absolute;
+  right: 40px;
 }
 .cancel-button:hover{
   background-color: #8C202B;
