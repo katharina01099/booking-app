@@ -5,7 +5,10 @@ import EditForm from "../forms/EditForm";
 const BookingList = (props) => {
     if (!props.bookings.bookings) return null;
     let bookings = null;
+    let header = <h4> All Bookings </h4>
+
     if (props.isFiltered){
+    header = <h4> Selected Date's Bookings </h4>
     bookings = props.filteredBookings.map(booking => {
         if (props.selectedId === booking.id) {
             return <EditForm edit = {booking} handleEdit = {props.handleEdit}/>
@@ -49,7 +52,11 @@ const BookingList = (props) => {
 
     return (
         <div className="booking-list">
+<<<<<<< HEAD
             
+=======
+            {header}
+>>>>>>> dev
             {bookings}
         </div>
     )

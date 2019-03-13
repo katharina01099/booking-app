@@ -3,8 +3,12 @@ import BookingBox from '../components/bookings/BookingBox';
 import BookingTableForm from '../components/forms/BookingTableForm';
 import CustomerList from '../components/customers/CustomerList';
 import TableBox from '../components/tables/TableBox';
+<<<<<<< HEAD
 import EditForm from '../components/forms/EditForm';
 import "../index.css";
+=======
+// import EditForm from '../components/forms/EditForm';
+>>>>>>> dev
 
 
 class PageContainer extends React.Component {
@@ -61,6 +65,7 @@ class PageContainer extends React.Component {
         this.handleTableDynamic = this.handleTableDynamic.bind(this);
         this.submitForm = this.submitForm.bind(this);
         this.validate = this.validate.bind(this);
+        this.getExistingCustomer = this.getExistingCustomer.bind(this);
 
     }
 
@@ -89,8 +94,6 @@ class PageContainer extends React.Component {
       .then(res => res.json())
       .then(data => this.setState({ customers: data._embedded.customers }))
       .catch(err => console.error(err));
-
-    console.log("I have pulled from db");
     }
 
     // handle all booking edit functionality
@@ -100,8 +103,6 @@ class PageContainer extends React.Component {
 
     handleEdit(booking){
         const url = 'http://localhost:8080/bookings/' + this.state.selectedId;
-        console.log(booking)
-        console.log(url)
         fetch(url, {
             method: 'PUT',
             body: JSON.stringify({numPeople: booking.covers, date: booking.date, time: booking.time}),
@@ -192,6 +193,14 @@ class PageContainer extends React.Component {
 
   submitForm(){
       if (!this.validate()) {return}
+      const existingCustomer = this.getExistingCustomer()
+
+      if(existingCustomer){
+        console.log("This customer already exists! Their name is " + existingCustomer.name)
+        //TODO Call an update method here that increments the visit counter and then makes the booking as before
+        return
+      }
+
       const newCustomer = {name:this.state.newName, phoneNumber: this.state.newPhoneNumber}
       const url = "http://localhost:8080/customers/";
   
@@ -223,25 +232,22 @@ class PageContainer extends React.Component {
 
 
 
-      console.log("I have submitted to db");
       this.setState(this.state);
 
-
-
-
-    //   const newBooking = {name: this.state.newName,
-    //     date: this.state.newDate,
-    //     time: this.state.newTime,
-    //     phoneNumber: this.state.newPhoneNumber,
-    //     numPeople: this.state.newCovers,
-    //     table: "http://localhost:8080/diningTables/" + this.state.newTableNumber}
-    //   const url = "http://localhost:8080/bookings"
-    //   fetch(url, {
-    //       method: 'POST',
-    //       body: JSON.stringify(newBooking)
-    //   })
-    //   .catch(err => console.error(err))
     }
+    //Existing Customer Checking
+
+    getExistingCustomer(){
+        if(this.state.customers){
+            const filteredCustomers = this.state.customers.filter(customer => {
+                return (customer.name === this.state.newName)
+            }) 
+            return filteredCustomers[0]
+        }
+    }
+
+
+
   
     //Input Validation Functions
     validate() {
@@ -250,7 +256,6 @@ class PageContainer extends React.Component {
 
 
   render() {
-    console.log("I have rendered");
     return (
       <div className="page-container">
       <div className="columnwrapper">
