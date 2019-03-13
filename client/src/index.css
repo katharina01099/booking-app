@@ -34,7 +34,6 @@ h2 {
 .page-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  /* background-color: rgba(255, 255, 255, 0.8); */
   border-radius: 5px;
   margin: 10px;
   padding: 10px;
@@ -44,14 +43,13 @@ h2 {
 #appheader{
   display: inline;
   color: #1B264F;
-  /* background-color: rgba(255, 255, 255, 0.8); */
   margin: 10px;
   border-radius: 5px;
 
 }
 
 .booking-detail{
-  color: #274690;
+  color: #416173;
 }
 
 .booking-table-form{
@@ -68,11 +66,13 @@ h2 {
 .table-box{
   margin: 10px;
   padding: 10px;
+  background-color: #E2C0DA;
 }
 
 .booking-box{
   margin: 10px;
   padding: 10px;
+  background-color: #9DB17C;
 }
 
 .booking-list{

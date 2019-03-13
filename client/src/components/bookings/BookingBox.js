@@ -6,7 +6,6 @@ import "../../index.css";
 const BookingBox = (props) => {
         return (
             <div className="booking-box">
-            <h2>All Bookings</h2>
                 Filter by date: <DateFilter resetFilter={props.resetFilter}handleDateFilter={props.handleDateFilter} />
                 <BookingList 
                 bookings = {props} 

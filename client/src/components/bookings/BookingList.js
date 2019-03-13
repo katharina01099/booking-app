@@ -1,11 +1,13 @@
 import React from "react";
-import BookingDetail from "./BookingDetail"
+import BookingDetail from "./BookingDetail";
 import EditForm from "../forms/EditForm";
+import "../../index.css";
+
 
 const BookingList = (props) => {
     if (!props.bookings.bookings) return null;
     let bookings = null;
-    let header = <h4> All Bookings </h4>
+    let header = <h2> All Bookings </h2>
 
     if (props.isFiltered){
     header = <h4> Selected Date's Bookings </h4>
