@@ -66,30 +66,6 @@ class PageContainer extends React.Component {
 
     componentDidMount() {
         this.updateDbToState();
-
-        // //Get all bookings from database on load
-
-        // const url_bookings = 'http://localhost:8080/bookings?sort=date,desc';
-        // fetch(url_bookings)
-        // .then(res => res.json())
-        // .then(data => this.setState({ bookings: data._embedded.bookings }))
-        // .catch(err => console.error(err));
-
-        // //Get all tables from database on load
-
-        // const url_tables = 'http://localhost:8080/diningTables';
-        // fetch(url_tables)
-        // .then(res => res.json())
-        // .then(data => this.setState({ tables: data._embedded.diningTables }))
-        // .catch(err => console.error(err));
-
-        // //Get all customers from db on load
-
-        // const url_customers = 'http://localhost:8080/customers?sort=numVisit,desc';
-        // fetch(url_customers)
-        // .then(res => res.json())
-        // .then(data => this.setState({ customers: data._embedded.customers }))
-        // .catch(err => console.error(err));
     }
 
     updateDbToState() {

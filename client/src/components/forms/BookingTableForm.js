@@ -37,9 +37,15 @@ class BookingTableForm extends Component {
   }
 
   handleNumOfPeopleChange(e) {
-    this.setState({ numPeople: e.target.value });
-    this.props.handleCoversDynamic(e.target.value);
-  }
+    let value = null;
+    if (e.target.value > 20) {
+      value = 20;
+    }else {
+      value = e.target.value;
+    }
+    this.setState({numPeople: value})
+    this.props.handleCoversDynamic(value);
+    }
 
   handlePhoneNumber(e){
     this.setState({phoneNumber: e.target.value});
