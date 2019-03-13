@@ -84,7 +84,7 @@ class PageContainer extends React.Component {
 
         //Get all customers from db on load
 
-        const url_customers = 'http://localhost:8080/customers';
+        const url_customers = 'http://localhost:8080/customers?sort=numVisit,desc';
         fetch(url_customers)
         .then(res => res.json())
         .then(data => this.setState({ customers: data._embedded.customers }))
@@ -108,7 +108,7 @@ class PageContainer extends React.Component {
 
         //Get all customers from db on load
 
-        const url_customers = 'http://localhost:8080/customers';
+        const url_customers = 'http://localhost:8080/customers?sort=numVisit,desc';
         fetch(url_customers)
         .then(res => res.json())
         .then(data => this.setState({ customers: data._embedded.customers }))
