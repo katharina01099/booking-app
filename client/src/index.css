@@ -8,11 +8,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: #92A8AF;
+  background-color: #1F5673;
   background-size: auto;
   background-repeat: no-repeat;
   background-position: absolute;
-
+  color: #1F363D;
 }
 
 code {
@@ -21,10 +21,10 @@ code {
 }
 
 h1{
-  color: #BDBF09;
+  color: #1F363D;
 }
 h2 {
-  color: #BDBF09;
+  color: #1F363D;
 }
 
 .booking-table-form input {
@@ -48,40 +48,45 @@ h2 {
 
 #appheader{
   display: inline;
-  color: #BDBF09;
+  color: #90C3C8;
   margin: 10px;
   border-radius: 5px;
-
 }
 
 
-.booking-table-form{
+.booking-form-inc-button{
   margin: 10px;
   padding: 10px;
-  background-color: #7C9299;
-  box-shadow: 5px 5px #888888;
+  background-color: #C6D8D3;
+  box-shadow: 5px 5px 5px black ;
 
 }
 
 .customer-list{
   margin: 10px;
   padding: 10px;
-  background-color: #7C9299;
-  box-shadow: 5px 5px #888888;
+  background-color: #B3CADA;
+  box-shadow: 5px 5px 5px black ;
+  height: 83.5vh;
+  overflow-y: scroll;
 }
 
 .table-box{
   margin: 10px;
   padding: 10px;
-  background-color: #7C9299;
-  box-shadow: 5px 5px #888888;
+  background-color: #C6D8D3;
+  box-shadow: 5px 5px 5px black ;
+  overflow-y: scroll;
+  height: 45vh;
 }
 
 .booking-box{
   margin: 10px;
   padding: 10px;
-  background-color: #7C9299;
-  box-shadow: 5px 5px #888888;
+  background-color: #B3CADA;
+  box-shadow: 5px 5px 5px black ;
+  overflow-y: scroll;
+  height: 83.5vh;
 }
 
 .booking-list{
@@ -101,4 +106,8 @@ li {list-style-type: none;}
 #applogo{
 width: 60px;
 height: 60px;
+}
+
+#clear-button{
+  
 }

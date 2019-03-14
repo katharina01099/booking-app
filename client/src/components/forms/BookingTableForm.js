@@ -137,7 +137,7 @@ class BookingTableForm extends Component {
               />
               </td>
             </tr>
-            <tr><button onClick = {() => this.setState({name: '',date: '',time: '',numPeople: '',phoneNumber: ''})}>Clear</button></tr>
+            <tr><button id = "clear-button" onClick = {() => this.setState({name: '',date: '',time: '',numPeople: '',phoneNumber: ''})}>Clear</button></tr>
           </tbody>
         </table>
       </form>

@@ -272,16 +272,18 @@ class PageContainer extends React.Component {
         return (
           <div className="page-container">
             <div className="columnwrapper">
-              <BookingTableForm
-                handleBookingTableSubmit={this.handleBookingTableSubmit}
-                handleNameDynamic={this.handleNameDynamic}
-                handleDateDynamic={this.handleDateDynamic}
-                handleTimeDynamic={this.handleTimeDynamic}
-                handlePhoneNumberDynamic={this.handlePhoneNumberDynamic}
-                handleCoversDynamic={this.handleCoversDynamic}
-                ValidateFormRef1={this.formCol1}
-              />
-              <button onClick={this.submitForm}>Submit booking</button>
+                <div className = "booking-form-inc-button">
+                    <BookingTableForm
+                        handleBookingTableSubmit={this.handleBookingTableSubmit}
+                        handleNameDynamic={this.handleNameDynamic}
+                        handleDateDynamic={this.handleDateDynamic}
+                        handleTimeDynamic={this.handleTimeDynamic}
+                        handlePhoneNumberDynamic={this.handlePhoneNumberDynamic}
+                        handleCoversDynamic={this.handleCoversDynamic}
+                        ValidateFormRef1={this.formCol1}
+                    />
+                    <button onClick={this.submitForm}>Submit booking</button>
+              </div>
               <TableBox
                 tables={this.state.tables}
                 handleTableDynamic={this.handleTableDynamic}
