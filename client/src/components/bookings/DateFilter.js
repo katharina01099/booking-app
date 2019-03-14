@@ -1,20 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const DateFilter = (props) => {
+
+  const [dateValue, setDateValue] = useState()
 
   function handleChange(event){
     const dateString = event.target.value; 
     
     if (dateString.length !== 10){return null};
-    console.log(dateString);
 
     props.handleDateFilter(dateString);
   }
 
+  function inputReset(event){
+    const input = document.getElementById("date-input");
+    input.valueAsDate = null;
+    props.resetFilter()
+  }
+
   return (
     <div>
-        <input onChange={handleChange}type="date"/>
-        <button onClick={props.resetFilter}>Show all</button>
+        <input id = "date-input" onChange={handleChange}type="date" defaultValue = {null}/>
+        <button onClick={inputReset}>Show all</button>
     </div>
   )
 }

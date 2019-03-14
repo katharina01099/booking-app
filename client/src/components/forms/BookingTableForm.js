@@ -19,7 +19,6 @@ class BookingTableForm extends Component {
     this.handleTimeChange = this.handleTimeChange.bind(this);
     this.handleNumOfPeopleChange = this.handleNumOfPeopleChange.bind(this);
     this.handlePhoneNumber = this.handlePhoneNumber.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleNameChange(e) {
     this.setState({ name: e.target.value });
@@ -52,20 +51,9 @@ class BookingTableForm extends Component {
     this.props.handlePhoneNumberDynamic(e.target.value);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    const newBookingTable = {
-      date: this.state.date,
-      time: this.state.time,
-      numPeople: this.state.numPeople
-    };
-    this.props.handleBookingTableSubmit(newBookingTable);
-    this.setState({ date: '', time: '', numPeople: '' });
-  }
-
   render() {
     return (
-      <form ref={this.props.ValidateFormRef1} className="booking-table-form" onSubmit={this.handleSubmit}>
+      <form ref={this.props.ValidateFormRef1} className="booking-table-form">
         <h2>New Booking</h2>
         <table>
           <tbody> 
@@ -149,6 +137,7 @@ class BookingTableForm extends Component {
               />
               </td>
             </tr>
+            <tr><button onClick = {() => this.setState({name: '',date: '',time: '',numPeople: '',phoneNumber: ''})}>Clear</button></tr>
           </tbody>
         </table>
       </form>
