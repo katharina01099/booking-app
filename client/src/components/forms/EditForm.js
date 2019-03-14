@@ -31,6 +31,8 @@ const EditForm = (props) => {
                                 onChange  = {handleChange}
                                 type = "text"/>
                         </td>
+                    </tr>
+                    <tr>
                         <td>
                             <label>Tel :</label>
                         </td>
@@ -42,6 +44,7 @@ const EditForm = (props) => {
                                 type = "text"/>
                         </td>
                     </tr>
+                    
                     <tr>
                         <td>
                             <label>Date :</label>
@@ -53,6 +56,8 @@ const EditForm = (props) => {
                                 onChange = {handleChange} 
                                 type = "date"/>
                         </td>
+                    </tr>
+                    <tr>
                         <td>
                             <label>Time :</label>
                         </td>
@@ -77,6 +82,8 @@ const EditForm = (props) => {
                                 type = "number" 
                                 placeholder = "covers"/>
                         </td>
+                    </tr>
+                    <tr>
                         <td>
                             <label>Table :</label>
                         </td>
